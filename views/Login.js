@@ -38,7 +38,7 @@ const Login = ({navigation}) => { // props is needed for navigation
     <Container>
       <Content padder>
         <Title>
-          <Icon name='planet' style={{fontSize: 200}} />
+          <Icon name='planet' style={{fontSize: 50}} />
         </Title>
         {showRegistration ?
           <LoginForm navigation={navigation} /> :
