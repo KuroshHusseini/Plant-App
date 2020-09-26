@@ -15,7 +15,7 @@ const LoginRegisterButton = (props) => {
 const styles = StyleSheet.create({
   btn: {
     backgroundColor: Color.green,
-    paddingVertical: 5,
+    paddingVertical: 10,
     paddingHorizontal: 10,
 
     alignItems: "center",

@@ -5,7 +5,7 @@ import AsyncStorage from "@react-native-community/async-storage";
 import FormTextInput from "./FormTextInput";
 import useSignUpForm from "../hooks/RegisterHooks";
 import { postRegistration, postLogIn } from "../hooks/APIhooks";
-import { Button, Text, Form } from "native-base";
+import {Form } from "native-base";
 import RegisterButton from "./RegisterButton";
 
 const RegisterForm = ({ navigation }) => {

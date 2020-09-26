@@ -1,3 +1,5 @@
+/* eslint-disable object-curly-spacing */
+/* eslint-disable quotes */
 import React, { useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { AuthContext } from "../contexts/AuthContext";
@@ -12,6 +14,10 @@ import {
   Content,
   Button,
   Text,
+  Header,
+  Body,
+  Left,
+  Right,
   View,
 } from "native-base";
 import RegisterButton from "../components/RegisterButton";
@@ -48,21 +54,34 @@ const Login = ({ navigation }) => {
   return (
     <Container>
       <Content padder>
-        <Title>
+        <Text
+          style={{
+            fontWeight: "bold",
+            paddingLeft: 45,
+            marginTop: 5,
+            fontSize: 18,
+          }}
+        >
+          Welcome To Plant-App Community
+        </Text>
+        <Title style={{ paddingLeft: 120, marginTop: 10 }}>
           <MaterialCommunityIcons
             name="flower-outline"
-            size={200}
+            size={140}
             color={Color.rose}
           />
         </Title>
+
         {showRegistration ? (
           <LoginForm navigation={navigation} />
         ) : (
           <RegisterForm navigation={navigation} />
         )}
-        <View style={{ alignItems: "center" }}>
-          <Text>or</Text>
+
+        <View style={{ alignItems: "center", margin: 5 }}>
+          <Text>OR</Text>
         </View>
+
         <RegisterButton
           block
           onPress={() => {
