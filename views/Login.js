@@ -7,6 +7,7 @@ import LoginForm from '../components/LoginForm';
 import RegisterForm from '../components/RegisterForm';
 import {Title, Icon, Container, Content, Button, Text, View} from 'native-base';
 
+
 const Login = ({navigation}) => { // props is needed for navigation
   const {setIsLoggedIn, setUser, user} = useContext(AuthContext);
   const [showRegistration, setShowRegistration] = useState(true);

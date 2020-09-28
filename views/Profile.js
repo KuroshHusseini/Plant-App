@@ -12,8 +12,11 @@ import {
   Icon,
   Body,
   Button,
+  StyleProvider,
 } from 'native-base';
+import getTheme from '../theme/components';
 import {getAvatar} from '../hooks/APIhooks';
+import material from '../theme/variables/material';
 
 const mediaUrl = 'http://media.mw.metropolia.fi/wbma/uploads/';
 
@@ -38,9 +41,10 @@ const Profile = ({navigation}) => {
     navigation.navigate('Login');
   };
   return (
-    <Container>
-      <Content padder>
-        {user &&
+    <StyleProvider style = {getTheme(material)}>
+      <Container>
+        <Content padder>
+          {user &&
           <Card>
             <CardItem header bordered>
               <Icon name='person' />
@@ -75,9 +79,10 @@ const Profile = ({navigation}) => {
               </Body>
             </CardItem>
           </Card>
-        }
-      </Content>
-    </Container>
+          }
+        </Content>
+      </Container>
+    </StyleProvider>
   );
 };
 
