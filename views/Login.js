@@ -12,9 +12,11 @@ import RegisterButton from "../components/RegisterButton";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Color from "../constants/Colors";
 
-const Login = ({ navigation }) => {
-  // props is needed for navigation
-  const { setIsLoggedIn, setUser, user } = useContext(AuthContext);
+
+
+const Login = ({navigation}) => { // props is needed for navigation
+  const {setIsLoggedIn, setUser, user} = useContext(AuthContext);
+
   const [showRegistration, setShowRegistration] = useState(true);
   // console.log('Login', isLoggedIn);
 
