@@ -15,6 +15,7 @@ import material from '../theme/variables/material';
 import getTheme from '../theme/components';
 import {StyleProvider} from 'native-base';
 
+// eslint-disable-next-line no-unused-vars
 
 const Upload = ({navigation}) => {
   const [image, setImage] = useState(null);
@@ -35,16 +36,18 @@ const Upload = ({navigation}) => {
       let type = match ? `${fileType}/${match[1]}` : fileType;
       if (type === 'image/jpg') type = 'image/jpeg';
 
-
       formData.append('file', {uri: image, name: filename, type});
       const userToken = await AsyncStorage.getItem('userToken');
       const resp = await upload(formData, userToken);
       console.log('File uploaded: ', resp);
 
-      const postTagResponse = await postTag({
-        file_id: resp.file_id,
-        tag: appIdentifier,
-      }, userToken);
+      const postTagResponse = await postTag(
+          {
+            file_id: resp.file_id,
+            tag: appIdentifier,
+          },
+          userToken,
+      );
       console.log('posting tag:', postTagResponse);
 
       // wait for 2 secs
@@ -57,13 +60,6 @@ const Upload = ({navigation}) => {
       console.log('upload error:', e.message);
       setIsLoading(false);
     }
-    // Finally-haara toimisi muuten ookoo, mutta tässä tapauksessa asynkroninen
-    // setTimeout sotkee. Eli jos halutaan piilottaa spinneri vasta asetetun
-    // 2 sekunnin viiveen jälkeen, täytyy state muuttaa setTimeoutin yhteydessä
-    //
-    // } finally {
-    //   setIsLoading(false);
-    // }
   };
 
   const pickImage = async () => {
@@ -99,13 +95,7 @@ const Upload = ({navigation}) => {
     getPermissionAsync();
   }, []);
 
-
-  const {
-    handleInputChange,
-    reset,
-    uploadErrors,
-    inputs,
-  } = useUploadForm();
+  const {handleInputChange, reset, uploadErrors, inputs} = useUploadForm();
 
   const doReset = () => {
     reset();
@@ -119,17 +109,18 @@ const Upload = ({navigation}) => {
         <Content padder>
           {image &&
           <>
-            {fileType === 'image' ?
+            {fileType === 'image' ? (
               <Image
                 source={{uri: image}}
                 style={{height: 400, width: null, flex: 1}}
-              /> :
+              />
+            ) : (
               <Video
                 source={{uri: image}}
                 style={{height: 400, width: null, flex: 1}}
                 useNativeControls={true}
               />
-            }
+            )}
           </>
           }
           <Form>
@@ -167,10 +158,8 @@ const Upload = ({navigation}) => {
   );
 };
 
-
 Upload.propTypes = {
   navigation: PropTypes.object,
 };
-
 
 export default Upload;

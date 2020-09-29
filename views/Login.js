@@ -74,7 +74,8 @@ const Login = ({navigation}) => { // props is needed for navigation
           {showRegistration ? (
           <LoginForm navigation={navigation} />
         ) : (
-          <RegisterForm navigation={navigation} />
+          <RegisterForm
+            navigation={navigation} />
         )}
 
           <View style={{ alignItems: "center", margin: 5 }}>
