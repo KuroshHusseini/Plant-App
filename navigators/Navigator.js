@@ -1,31 +1,64 @@
-import React, {useContext} from 'react';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {createStackNavigator} from '@react-navigation/stack';
-import {NavigationContainer} from '@react-navigation/native';
-import Home from '../views/Home';
-import Profile from '../views/Profile';
-import Single from '../views/Single';
-import Login from '../views/Login';
-import {AuthContext} from '../contexts/AuthContext';
-import Upload from '../views/Upload';
-import MyFiles from '../views/MyFiles';
-import Modify from '../views/Modify';
-
+import React, { useContext } from "react";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
+import Home from "../views/Home";
+import Profile from "../views/Profile";
+import Single from "../views/Single";
+import Login from "../views/Login";
+import { AuthContext } from "../contexts/AuthContext";
+import Upload from "../views/Upload";
+import MyFiles from "../views/MyFiles";
+import Modify from "../views/Modify";
+import Color from "../constants/Colors";
+import { AntDesign, Ionicons, Entypo } from "@expo/vector-icons";
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
 const TabScreen = () => {
   return (
     <Tab.Navigator>
-      <Tab.Screen name='Home' component={Home} />
-      <Tab.Screen name='Profile' component={Profile} />
-      <Tab.Screen name='Upload' component={Upload} />
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        options={{
+          // eslint-disable-next-line react/display-name
+          tabBarIcon: (props) => (
+            <Ionicons
+              backgroundColor="green"
+              name="ios-home"
+              size={24}
+              color="black"
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          // eslint-disable-next-line react/display-name
+          tabBarIcon: (props) => (
+            <AntDesign name="profile" size={24} color="black" />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Upload"
+        component={Upload}
+        options={{
+          // eslint-disable-next-line react/display-name
+          tabBarIcon: (props) => (
+            <Entypo name="upload" size={24} color="black" />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 };
 
 const StackScreen = () => {
-  const {isLoggedIn} = useContext(AuthContext);
+  const { isLoggedIn } = useContext(AuthContext);
   return (
     <Stack.Navigator>
       {isLoggedIn ? (
@@ -36,10 +69,10 @@ const StackScreen = () => {
           <Stack.Screen name="Modify" component={Modify} />
         </>
       ) : (
-          <>
-            <Stack.Screen name="Login" component={Login} />
-          </>
-        )}
+        <>
+          <Stack.Screen name="Login" component={Login} />
+        </>
+      )}
     </Stack.Navigator>
   );
 };
