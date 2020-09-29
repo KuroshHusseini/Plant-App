@@ -9,7 +9,6 @@ import {AuthContext} from '../contexts/AuthContext';
 import {StyleProvider} from 'native-base';
 import getTheme from '../theme/components';
 import material from '../theme/variables/material';
-
 const List = ({navigation, all}) => {
   const {user} = useContext(AuthContext);
   // console.log(user);
