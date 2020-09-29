@@ -5,7 +5,7 @@ import FormTextInput from "../components/FormTextInput";
 import { Image, Platform } from "react-native";
 import useUploadForm from "../hooks/UploadHooks";
 import * as ImagePicker from "expo-image-picker";
-
+import CustomBtn from "../components/CustomBtn";
 // eslint-disable-next-line no-unused-vars
 import Constants from "expo-constants";
 import * as Permissions from "expo-permissions";
@@ -136,7 +136,7 @@ const Upload = ({ navigation }) => {
         </Form>
 
         <Button block onPress={pickImage}>
-          <Text>Choose file</Text>
+          <Text>Choose file </Text>
         </Button>
 
         <Button

@@ -10,8 +10,7 @@ const FormTextInput = ({ style, error, ...otherProps }) => {
 
         borderBottomWidth: 1,
         borderColor: Color.rose,
-        borderBottomRadius: 10,
-        marginBottom: 12,
+        marginBottom: 5,
         paddingBottom: 10,
       }}
     >
