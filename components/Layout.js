@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Container,
   Header,
@@ -10,35 +10,40 @@ import {
   Title,
   Icon,
   Content,
-} from "native-base";
+  StyleProvider,
+} from 'native-base';
+import getTheme from '../theme/components';
+import material from '../theme/variables/material';
 
 const Layout = (props) => {
-  console.log("Layout", props);
+  console.log('Layout', props);
   const handleBackButtonClick = () => {
     props.navigation.goBack(null);
     return true;
   };
   return (
-    <Container>
-      <Header>
+    <StyleProvider style = {getTheme(material)}>
+      <Container>
+        <Header>
 
-        <Left>
-          {props.backButton && (
-            <Button transparent onPress={handleBackButtonClick}>
-              <Icon name="arrow-back" />
-            </Button>
-          )}
-        </Left>
+          <Left>
+            {props.backButton && (
+              <Button transparent onPress={handleBackButtonClick}>
+                <Icon name="arrow-back" />
+              </Button>
+            )}
+          </Left>
 
-        <Body>
-          <Title>MyApp</Title>
-        </Body>
+          <Body>
+            <Title>MyApp</Title>
+          </Body>
 
-        <Right></Right>
-      </Header>
+          <Right></Right>
+        </Header>
 
-      <Content padder>{props.children}</Content>
-    </Container>
+        <Content padder>{props.children}</Content>
+      </Container>
+    </StyleProvider>
   );
 };
 
