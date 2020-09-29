@@ -7,19 +7,7 @@ import AsyncStorage from "@react-native-community/async-storage";
 import { checkToken } from "../hooks/APIhooks";
 import LoginForm from "../components/LoginForm";
 import RegisterForm from "../components/RegisterForm";
-import {
-  Title,
-  Icon,
-  Container,
-  Content,
-  Button,
-  Text,
-  Header,
-  Body,
-  Left,
-  Right,
-  View,
-} from "native-base";
+import { Title, Container, Content, Text, View } from "native-base";
 import RegisterButton from "../components/RegisterButton";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Color from "../constants/Colors";
@@ -73,9 +61,12 @@ const Login = ({ navigation }) => {
         </Title>
 
         {showRegistration ? (
-          <LoginForm navigation={navigation} />
+          <LoginForm
+            navigation={navigation}
+          />
         ) : (
-          <RegisterForm navigation={navigation} />
+          <RegisterForm
+          navigation={navigation} />
         )}
 
         <View style={{ alignItems: "center", margin: 5 }}>
