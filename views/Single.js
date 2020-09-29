@@ -10,11 +10,15 @@ import {
   Text,
   Content,
   Container,
+  StyleProvider,
 } from 'native-base';
 import {Video} from 'expo-av';
 import {getUser} from '../hooks/APIhooks';
 import AsyncStorage from '@react-native-community/async-storage';
 import * as ScreenOrientation from 'expo-screen-orientation';
+import material from '../theme/variables/material';
+import getTheme from '../theme/components';
+
 
 const mediaUrl = 'http://media.mw.metropolia.fi/wbma/uploads/';
 
@@ -69,18 +73,19 @@ const Single = ({route}) => {
 
   console.log('kuva', mediaUrl + file.filename);
   return (
-    <Container>
-      <Content padder>
-        <Card>
-          <CardItem>
-            <Left>
-              <Icon name={'image'} />
-              <Text>{file.title}</Text>
-            </Left>
-          </CardItem>
-          <CardItem cardBody>
-            <>
-              {file.media_type === 'image' ?
+    <StyleProvider style = {getTheme(material)}>
+      <Container>
+        <Content padder>
+          <Card>
+            <CardItem>
+              <Left>
+                <Icon name={'image'} />
+                <Text>{file.title}</Text>
+              </Left>
+            </CardItem>
+            <CardItem cardBody>
+              <>
+                {file.media_type === 'image' ?
                 <Image
                   source={{uri: mediaUrl + file.filename}}
                   style={{height: 400, width: null, flex: 1}}
@@ -103,20 +108,21 @@ const Single = ({route}) => {
                     setError(true);
                   }}
                 />
-              }
-            </>
-          </CardItem>
-          <CardItem style={{flexDirection: 'column'}}>
-            <Text>
-              {file.description}
-            </Text>
-            <Text>
+                }
+              </>
+            </CardItem>
+            <CardItem style={{flexDirection: 'column'}}>
+              <Text>
+                {file.description}
+              </Text>
+              <Text>
               By: {owner.username}
-            </Text>
-          </CardItem>
-        </Card>
-      </Content>
-    </Container>
+              </Text>
+            </CardItem>
+          </Card>
+        </Content>
+      </Container>
+    </StyleProvider>
 
   );
 };

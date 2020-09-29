@@ -88,8 +88,8 @@ export default {
   },
 
   // Card
-  cardDefaultBg: '#fff',
-  cardBorderColor: '#ccc',
+  cardDefaultBg: '#4DC955',
+  cardBorderColor: '#38733C',
   cardBorderRadius: 2,
   cardItemPadding: platform === 'ios' ? 10 : 12,
 
@@ -106,7 +106,7 @@ export default {
   checkboxTickColor: '#fff',
 
   // Color
-  brandPrimary: platform === 'ios' ? '#007aff' : '#4DC955',
+  brandPrimary: platform === 'ios' ? '#4DC955' : '#4DC955',
   brandInfo: '#34BA96',
   brandSuccess: '#38733C',
   brandDanger: '#d9534f',
@@ -115,7 +115,7 @@ export default {
   brandLight: '#f4f4f4',
 
   // Container
-  containerBgColor: '#fff',
+  containerBgColor: '#4DC955',
 
   // Date Picker
   datePickerTextColor: '#000',

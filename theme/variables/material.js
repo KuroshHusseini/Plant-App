@@ -88,8 +88,8 @@ export default {
   },
 
   // Card
-  cardDefaultBg: '#fff',
-  cardBorderColor: '#ccc',
+  cardDefaultBg: '#34BA96',
+  cardBorderColor: '#38733C',
   cardBorderRadius: 2,
   cardItemPadding: platform === 'ios' ? 10 : 12,
 
@@ -106,16 +106,16 @@ export default {
   checkboxTickColor: '#fff',
 
   // Color
-  brandPrimary: '#3F51B5',
-  brandInfo: '#62B1F6',
-  brandSuccess: '#5cb85c',
-  brandDanger: '#d9534f',
-  brandWarning: '#f0ad4e',
+  brandPrimary: '#34BA96',
+  brandInfo: '#34BA96',
+  brandSuccess: '#38733C',
+  brandDanger: '#AB2C4E',
+  brandWarning: '#FB8B24',
   brandDark: '#000',
   brandLight: '#f4f4f4',
 
   // Container
-  containerBgColor: '#fff',
+  containerBgColor: '#4DC955',
 
   // Date Picker
   datePickerTextColor: '#000',
@@ -137,27 +137,27 @@ export default {
 
   // Footer
   footerHeight: 55,
-  footerDefaultBg: '#3F51B5',
+  footerDefaultBg: '#4DC955',
   footerPaddingBottom: 0,
 
   // FooterTab
   tabBarTextColor: '#bfc6ea',
   tabBarTextSize: 11,
-  activeTab: '#fff',
-  sTabBarActiveTextColor: '#007aff',
-  tabBarActiveTextColor: '#fff',
-  tabActiveBgColor: '#3F51B5',
+  activeTab: '#38733C',
+  sTabBarActiveTextColor: '#000',
+  tabBarActiveTextColor: '#000',
+  tabActiveBgColor: '#38733C',
 
   // Header
-  toolbarBtnColor: '#fff',
-  toolbarDefaultBg: '#3F51B5',
+  toolbarBtnColor: '#38733C',
+  toolbarDefaultBg: '#4DC955',
   toolbarHeight: 56,
   toolbarSearchIconSize: 23,
   toolbarInputColor: '#fff',
   searchBarHeight: platform === 'ios' ? 30 : 40,
   searchBarInputHeight: platform === 'ios' ? 40 : 50,
-  toolbarBtnTextColor: '#fff',
-  toolbarDefaultBorder: '#3F51B5',
+  toolbarBtnTextColor: '#000',
+  toolbarDefaultBorder: '#38733C',
   iosStatusbar: 'light-content',
   get statusBarColor() {
     return color(this.toolbarDefaultBg)
@@ -196,9 +196,9 @@ export default {
   lineHeight: 24,
 
   // List
-  listBg: 'transparent',
-  listBorderColor: '#c9c9c9',
-  listDividerBg: '#f4f4f4',
+  listBg: '4DC955',
+  listBorderColor: '#34BA96',
+  listDividerBg: '#34BA96',
   listBtnUnderlayColor: '#DDD',
   listItemPadding: 12,
   listNoteColor: '#808080',
@@ -220,8 +220,8 @@ export default {
   // Segment
   segmentBackgroundColor: '#3F51B5',
   segmentActiveBackgroundColor: '#fff',
-  segmentTextColor: '#fff',
-  segmentActiveTextColor: '#3F51B5',
+  segmentTextColor: '#000',
+  segmentActiveTextColor: '#000',
   segmentBorderColor: '#fff',
   segmentBorderColorMain: '#3F51B5',
 
@@ -231,8 +231,8 @@ export default {
 
   // Tab
   tabDefaultBg: '#3F51B5',
-  topTabBarTextColor: '#b3c7f9',
-  topTabBarActiveTextColor: '#fff',
+  topTabBarTextColor: '#000',
+  topTabBarActiveTextColor: '#000',
   topTabBarBorderColor: '#fff',
   topTabBarActiveBorderColor: '#fff',
 
@@ -242,7 +242,7 @@ export default {
 
   // Text
   textColor: '#000',
-  inverseTextColor: '#fff',
+  inverseTextColor: '#000',
   noteFontSize: 14,
   get defaultTextColor() {
     return this.textColor;
@@ -252,8 +252,8 @@ export default {
   titleFontfamily: 'Roboto',
   titleFontSize: 19,
   subTitleFontSize: 14,
-  subtitleColor: '#FFF',
-  titleFontColor: '#FFF',
+  subtitleColor: '#000',
+  titleFontColor: '#000',
 
   // Other
   borderRadiusBase: 2,

@@ -11,6 +11,9 @@ import * as Permissions from 'expo-permissions';
 import {upload, postTag, appIdentifier} from '../hooks/APIhooks';
 import AsyncStorage from '@react-native-community/async-storage';
 import {Video} from 'expo-av';
+import material from '../theme/variables/material';
+import getTheme from '../theme/components';
+import {StyleProvider} from 'native-base';
 
 
 const Upload = ({navigation}) => {
@@ -111,9 +114,10 @@ const Upload = ({navigation}) => {
   };
 
   return (
-    <Container>
-      <Content padder>
-        {image &&
+    <StyleProvider style = {getTheme(material)}>
+      <Container>
+        <Content padder>
+          {image &&
           <>
             {fileType === 'image' ?
               <Image
@@ -127,38 +131,39 @@ const Upload = ({navigation}) => {
               />
             }
           </>
-        }
-        <Form>
-          <FormTextInput
-            autoCapitalize="none"
-            placeholder="title"
-            value={inputs.title}
-            onChangeText={(txt) => handleInputChange('title', txt)}
-            error={uploadErrors.title}
-          />
-          <FormTextInput
-            autoCapitalize="none"
-            placeholder="description"
-            value={inputs.description}
-            onChangeText={(txt) => handleInputChange('description', txt)}
-            error={uploadErrors.description}
-          />
-        </Form>
-        <Button block onPress={pickImage}>
-          <Text>Choose file</Text>
-        </Button>
-        <Button block
-          disabled={(uploadErrors.title !== null ||
+          }
+          <Form>
+            <FormTextInput
+              autoCapitalize="none"
+              placeholder="title"
+              value={inputs.title}
+              onChangeText={(txt) => handleInputChange('title', txt)}
+              error={uploadErrors.title}
+            />
+            <FormTextInput
+              autoCapitalize="none"
+              placeholder="description"
+              value={inputs.description}
+              onChangeText={(txt) => handleInputChange('description', txt)}
+              error={uploadErrors.description}
+            />
+          </Form>
+          <Button block onPress={pickImage}>
+            <Text>Choose file</Text>
+          </Button>
+          <Button block
+            disabled={(uploadErrors.title !== null ||
             uploadErrors.description !== null || image === null)}
-          onPress={doUpload}>
-          <Text>Upload</Text>
-        </Button>
-        {isLoading && <Spinner />}
-        <Button block onPress={doReset}>
-          <Text>Reset</Text>
-        </Button>
-      </Content>
-    </Container>
+            onPress={doUpload}>
+            <Text>Upload</Text>
+          </Button>
+          {isLoading && <Spinner />}
+          <Button block onPress={doReset}>
+            <Text>Reset</Text>
+          </Button>
+        </Content>
+      </Container>
+    </StyleProvider>
   );
 };
 

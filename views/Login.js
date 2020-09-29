@@ -9,21 +9,17 @@ import LoginForm from "../components/LoginForm";
 import RegisterForm from "../components/RegisterForm";
 import {
   Title,
-  Icon,
   Container,
   Content,
-  Button,
   Text,
-  Header,
-  Body,
-  Left,
-  Right,
   View,
+  StyleProvider,
 } from "native-base";
 import RegisterButton from "../components/RegisterButton";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Color from "../constants/Colors";
-
+import getTheme from '../theme/components';
+import material from '../theme/variables/material';
 
 
 const Login = ({navigation}) => { // props is needed for navigation
@@ -54,46 +50,48 @@ const Login = ({navigation}) => { // props is needed for navigation
   console.log("Login.js", user);
 
   return (
-    <Container>
-      <Content padder>
-        <Text
-          style={{
-            fontWeight: "bold",
-            paddingLeft: 45,
-            marginTop: 5,
-            fontSize: 18,
-          }}
-        >
+    <StyleProvider style = {getTheme(material)}>
+      <Container>
+        <Content padder>
+          <Text
+            style={{
+              fontWeight: "bold",
+              paddingLeft: 45,
+              marginTop: 5,
+              fontSize: 18,
+            }}
+          >
           Welcome To Plant-App Community
-        </Text>
-        <Title style={{ paddingLeft: 120, marginTop: 10 }}>
-          <MaterialCommunityIcons
-            name="flower-outline"
-            size={140}
-            color={Color.rose}
-          />
-        </Title>
+          </Text>
+          <Title style={{ paddingLeft: 120, marginTop: 10 }}>
+            <MaterialCommunityIcons
+              name="flower-outline"
+              size={140}
+              color={Color.rose}
+            />
+          </Title>
 
-        {showRegistration ? (
+          {showRegistration ? (
           <LoginForm navigation={navigation} />
         ) : (
           <RegisterForm navigation={navigation} />
         )}
 
-        <View style={{ alignItems: "center", margin: 5 }}>
-          <Text>OR</Text>
-        </View>
+          <View style={{ alignItems: "center", margin: 5 }}>
+            <Text>OR</Text>
+          </View>
 
-        <RegisterButton
-          block
-          onPress={() => {
-            setShowRegistration(!showRegistration);
-          }}
-        >
-          {showRegistration ? "Register" : "Login"}
-        </RegisterButton>
-      </Content>
-    </Container>
+          <RegisterButton
+            block
+            onPress={() => {
+              setShowRegistration(!showRegistration);
+            }}
+          >
+            {showRegistration ? "Register" : "Login"}
+          </RegisterButton>
+        </Content>
+      </Container>
+    </StyleProvider>
   );
 };
 
