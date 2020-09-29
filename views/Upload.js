@@ -136,7 +136,7 @@ const Upload = ({ navigation }) => {
         </Form>
 
         <Button block onPress={pickImage}>
-         Choose file
+          <Text>Choose file</Text>
         </Button>
 
         <Button
@@ -156,7 +156,6 @@ const Upload = ({ navigation }) => {
         <Button block onPress={doReset}>
           <Text>Reset</Text>
         </Button>
-
       </Content>
     </Container>
   );

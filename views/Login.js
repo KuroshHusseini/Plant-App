@@ -12,10 +12,9 @@ import RegisterButton from "../components/RegisterButton";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Color from "../constants/Colors";
 
-
-
-const Login = ({navigation}) => { // props is needed for navigation
-  const {setIsLoggedIn, setUser, user} = useContext(AuthContext);
+const Login = ({ navigation }) => {
+  // props is needed for navigation
+  const { setIsLoggedIn, setUser, user } = useContext(AuthContext);
 
   const [showRegistration, setShowRegistration] = useState(true);
   // console.log('Login', isLoggedIn);
@@ -57,18 +56,15 @@ const Login = ({navigation}) => { // props is needed for navigation
         <Title style={{ paddingLeft: 120, marginTop: 10 }}>
           <MaterialCommunityIcons
             name="flower-outline"
-            size={140}
+            size={160}
             color={Color.rose}
           />
         </Title>
 
         {showRegistration ? (
-          <LoginForm
-            navigation={navigation}
-          />
+          <LoginForm navigation={navigation} />
         ) : (
-          <RegisterForm
-          navigation={navigation} />
+          <RegisterForm navigation={navigation} />
         )}
 
         <View style={{ alignItems: "center", margin: 5 }}>
