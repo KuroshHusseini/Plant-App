@@ -143,7 +143,7 @@ export default {
   // FooterTab
   tabBarTextColor: '#bfc6ea',
   tabBarTextSize: 11,
-  activeTab: '#38733C',
+  activeTab: '#4DC955',
   sTabBarActiveTextColor: '#000',
   tabBarActiveTextColor: '#000',
   tabActiveBgColor: '#38733C',
