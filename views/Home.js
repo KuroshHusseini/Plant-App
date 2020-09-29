@@ -1,30 +1,23 @@
 import {StatusBar} from 'expo-status-bar';
 import React from 'react';
-import {
-  StyleSheet,
-  SafeAreaView,
-} from 'react-native';
 import List from '../components/List';
 import PropTypes from 'prop-types';
+import {StyleProvider} from 'native-base';
+import getTheme from '../theme/components';
+import material from '../theme/variables/material';
 
 
 const Home = ({navigation}) => {
   // const {navigation} = props;
   // const navigation = props.navigation;
   return (
-    <SafeAreaView style={styles.container}>
+    <StyleProvider style = {getTheme(material)}>
+
       <List navigation={navigation} all />
-      <StatusBar style="auto" />
-    </SafeAreaView>
+
+    </StyleProvider>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#fff',
-    paddingHorizontal: 10,
-  },
-});
 
 Home.propTypes = {
   navigation: PropTypes.object,
