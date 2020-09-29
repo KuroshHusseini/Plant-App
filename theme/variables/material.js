@@ -37,9 +37,9 @@ export default {
   // Button
   btnFontFamily: 'Roboto',
   btnDisabledBg: '#b5b5b5',
-  buttonPadding: 6,
+  buttonPadding: 4,
   get btnPrimaryBg() {
-    return this.brandPrimary;
+    return this.brandSuccess;
   },
   get btnPrimaryColor() {
     return this.inverseTextColor;
@@ -88,7 +88,7 @@ export default {
   },
 
   // Card
-  cardDefaultBg: '#34BA96',
+  cardDefaultBg: '#4DC955',
   cardBorderColor: '#38733C',
   cardBorderRadius: 2,
   cardItemPadding: platform === 'ios' ? 10 : 12,
@@ -106,16 +106,16 @@ export default {
   checkboxTickColor: '#fff',
 
   // Color
-  brandPrimary: '#34BA96',
+  brandPrimary: '#4DC955',
   brandInfo: '#34BA96',
-  brandSuccess: '#38733C',
+  brandSuccess: '#228b22',
   brandDanger: '#AB2C4E',
   brandWarning: '#FB8B24',
   brandDark: '#000',
   brandLight: '#f4f4f4',
 
   // Container
-  containerBgColor: '#4DC955',
+  containerBgColor: '#b8f4b8',
 
   // Date Picker
   datePickerTextColor: '#000',
