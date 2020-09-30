@@ -196,7 +196,7 @@ export default {
   lineHeight: 24,
 
   // List
-  listBg: '4DC955',
+  listBg: '#4DC955',
   listBorderColor: '#34BA96',
   listDividerBg: '#34BA96',
   listBtnUnderlayColor: '#DDD',

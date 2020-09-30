@@ -197,7 +197,7 @@ export default {
   listItemSelected: platform === 'ios' ? '#007aff' : '#3F51B5',
 
   // List
-  listBg: 'transparent',
+  listBg: '4DC955',
   listBorderColor: '#c9c9c9',
   listDividerBg: '#f4f4f4',
   listBtnUnderlayColor: '#DDD',
