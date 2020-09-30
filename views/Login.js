@@ -50,6 +50,7 @@ const Login = ({ navigation }) => {
   console.log("Login.js", user);
 
   return (
+
     <StyleProvider style={getTheme(materialTwo)}>
       <Container>
         <Content padder>
@@ -70,6 +71,7 @@ const Login = ({ navigation }) => {
               color={"#008000"}
             />
           </Title>
+
 
           {showRegistration ? (
             <LoginForm navigation={navigation} />
