@@ -30,7 +30,7 @@ export default {
   btnUppercaseAndroidText: true,
 
   // Badge
-  badgeBg: '#ED1727',
+  badgeBg: '#b8f4b8',
   badgeColor: '#fff',
   badgePadding: 0,
 
@@ -101,7 +101,7 @@ export default {
   CheckboxIconSize: 16,
   CheckboxIconMarginTop: 1,
   CheckboxFontSize: 17,
-  checkboxBgColor: '#039BE5',
+  checkboxBgColor: '#b8f4b8',
   checkboxSize: 20,
   checkboxTickColor: '#fff',
 
@@ -119,7 +119,7 @@ export default {
 
   // Date Picker
   datePickerTextColor: '#000',
-  datePickerBg: 'transparent',
+  datePickerBg: 'b8f4b8',
 
   // Font
   DefaultFontSize: 16,
@@ -137,7 +137,7 @@ export default {
 
   // Footer
   footerHeight: 55,
-  footerDefaultBg: '#4DC955',
+  footerDefaultBg: '#b8f4b8',
   footerPaddingBottom: 0,
 
   // FooterTab
@@ -150,7 +150,7 @@ export default {
 
   // Header
   toolbarBtnColor: '#38733C',
-  toolbarDefaultBg: '#4DC955',
+  toolbarDefaultBg: '#b8f4b8',
   toolbarHeight: 56,
   toolbarSearchIconSize: 23,
   toolbarInputColor: '#fff',
@@ -197,10 +197,10 @@ export default {
 
   // List
   listBg: '#4DC955',
-  listBorderColor: '#34BA96',
+  listBorderColor: '#38733C',
   listDividerBg: '#34BA96',
   listBtnUnderlayColor: '#DDD',
-  listItemPadding: 12,
+  listItemPadding: 8,
   listNoteColor: '#808080',
   listNoteSize: 13,
   listItemSelected: '#3F51B5',
@@ -230,14 +230,14 @@ export default {
   inverseSpinnerColor: '#1A191B',
 
   // Tab
-  tabDefaultBg: '#3F51B5',
+  tabDefaultBg: '#b8f4b8',
   topTabBarTextColor: '#000',
   topTabBarActiveTextColor: '#000',
   topTabBarBorderColor: '#fff',
   topTabBarActiveBorderColor: '#fff',
 
   // Tabs
-  tabBgColor: '#F8F8F8',
+  tabBgColor: '#b8f4b8',
   tabFontSize: 15,
 
   // Text

@@ -1,5 +1,7 @@
+/* eslint-disable max-len */
+/* eslint-disable react/display-name */
+/* eslint-disable react/prop-types */
 import React, {useContext} from 'react';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import Home from '../views/Home';
@@ -14,14 +16,24 @@ import {AntDesign, Ionicons, Entypo} from '@expo/vector-icons';
 import {StyleProvider} from 'native-base';
 import material from '../theme/variables/material';
 import getTheme from '../theme/components';
+import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 
-const Tab = createBottomTabNavigator();
+
+const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
 
 const TabScreen = () => {
   return (
     <StyleProvider style = {getTheme(material)}>
-      <Tab.Navigator>
+      <Tab.Navigator
+        shifting
+        activeColor = '#228b22'
+        inactiveColor = 'gray'
+        barStyle={{
+          borderColor: '#38733C',
+          backgroundColor: '#b8f4b8',
+        }}>
+
         <Tab.Screen
           name="Home"
           component={Home}
@@ -29,12 +41,13 @@ const TabScreen = () => {
           // eslint-disable-next-line react/display-name
             tabBarIcon: (props) => (
               <Ionicons
-                backgroundColor="green"
+                backgroundColor="#b8f4b8"
                 name="ios-home"
                 size={24}
                 color="black"
               />
             ),
+            tabBarColor: '#4DC955',
           }}
         />
         <Tab.Screen
@@ -45,6 +58,7 @@ const TabScreen = () => {
             tabBarIcon: (props) => (
               <AntDesign name="profile" size={24} color="black" />
             ),
+            tabBarColor: '#34BA96',
           }}
         />
         <Tab.Screen
@@ -55,6 +69,7 @@ const TabScreen = () => {
             tabBarIcon: (props) => (
               <Entypo name="upload" size={24} color="black" />
             ),
+            tabBarColor: '#FB8B24',
           }}
         />
       </Tab.Navigator>

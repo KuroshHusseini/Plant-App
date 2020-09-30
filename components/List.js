@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, {useContext} from 'react';
 import {
   FlatList,
@@ -6,7 +7,7 @@ import ListItem from './ListItem';
 import PropTypes from 'prop-types';
 import {useLoadMedia} from '../hooks/APIhooks';
 import {AuthContext} from '../contexts/AuthContext';
-import {StyleProvider} from 'native-base';
+import {StyleProvider, Container} from 'native-base';
 import getTheme from '../theme/components';
 import material from '../theme/variables/material';
 const List = ({navigation, all}) => {
@@ -16,13 +17,15 @@ const List = ({navigation, all}) => {
 
   return (
     <StyleProvider style = {getTheme(material)}>
-      <FlatList
-        data={mediaArray}
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={({item}) =>
-          <ListItem singleMedia={item} navigation={navigation} editable={!all}/>
-        }
-      />
+      <Container>
+        <FlatList
+          data={mediaArray}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={({item}) =>
+            <ListItem singleMedia={item} navigation={navigation} editable={!all}/>
+          }
+        />
+      </Container>
     </StyleProvider>
   );
 };
