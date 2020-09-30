@@ -24,78 +24,105 @@ const Stack = createStackNavigator();
 
 const TabScreen = () => {
   return (
-    <StyleProvider style = {getTheme(material)}>
-      <Tab.Navigator
-        shifting
-        activeColor = '#228b22'
-        inactiveColor = 'gray'
-        barStyle={{
-          borderColor: '#38733C',
-          backgroundColor: '#b8f4b8',
-        }}>
+    <Tab.Navigator
+      shifting
+      activeColor = '#228b22'
+      inactiveColor = 'gray'
+      barStyle={{
+        borderColor: '#38733C',
+        backgroundColor: '#b8f4b8',
+      }}>
 
-        <Tab.Screen
-          name="Home"
-          component={Home}
-          options={{
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        options={{
           // eslint-disable-next-line react/display-name
-            tabBarIcon: (props) => (
-              <Ionicons
-                backgroundColor="#b8f4b8"
-                name="ios-home"
-                size={24}
-                color="black"
-              />
-            ),
-            tabBarColor: '#4DC955',
-          }}
-        />
-        <Tab.Screen
-          name="Profile"
-          component={Profile}
-          options={{
+          tabBarIcon: () => (
+            <Ionicons
+              backgroundColor="#b8f4b8"
+              name="ios-home"
+              size={24}
+              color="black"
+            />
+          ),
+          tabBarColor: '#4DC955',
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={Profile}
+        options={{
           // eslint-disable-next-line react/display-name
-            tabBarIcon: (props) => (
-              <AntDesign name="profile" size={24} color="black" />
-            ),
-            tabBarColor: '#34BA96',
-          }}
-        />
-        <Tab.Screen
-          name="Upload"
-          component={Upload}
-          options={{
+          tabBarIcon: () => (
+            <AntDesign name="profile" size={24} color="black" />
+          ),
+          tabBarColor: '#34BA96',
+        }}
+      />
+      <Tab.Screen
+        name="Upload"
+        component={Upload}
+        options={{
           // eslint-disable-next-line react/display-name
-            tabBarIcon: (props) => (
-              <Entypo name="upload" size={24} color="black" />
-            ),
-            tabBarColor: '#FB8B24',
-          }}
-        />
-      </Tab.Navigator>
-    </StyleProvider>
+          tabBarIcon: () => (
+            <Entypo name="upload" size={24} color="black" />
+          ),
+          tabBarColor: '#FB8B24',
+        }}
+      />
+    </Tab.Navigator>
+
   );
 };
 
 const StackScreen = () => {
   const {isLoggedIn} = useContext(AuthContext);
   return (
-    <StyleProvider style = {getTheme(material)}>
-      <Stack.Navigator>
-        {isLoggedIn ? (
+    <Stack.Navigator>
+      {isLoggedIn ? (
         <>
-          <Stack.Screen name="Home" component={TabScreen} />
-          <Stack.Screen name="Single" component={Single} />
-          <Stack.Screen name="MyFiles" component={MyFiles} />
-          <Stack.Screen name="Modify" component={Modify} />
+          <Stack.Screen
+            name="Home"
+            component={TabScreen}
+            options = {{
+              headerPressColorAndroid: '#b8f4b8',
+              headerStyle: {
+                backgroundColor: '#b8f4b8',
+              },
+            }}/>
+          <Stack.Screen
+            name="Single"
+            component={Single}
+            options = {{
+              headerPressColorAndroid: '#b8f4b8',
+              headerStyle: {
+                backgroundColor: '#4DC955',
+              },
+            }}/>
+          <Stack.Screen name="MyFiles"
+            component={MyFiles}
+            options = {{
+              headerPressColorAndroid: '#b8f4b8',
+              headerStyle: {
+                backgroundColor: '#FB8B24',
+              },
+            }}/>
+          <Stack.Screen name="Modify"
+            component={Modify}
+            options = {{
+              headerPressColorAndroid: '#b8f4b8',
+              headerStyle: {
+                backgroundColor: '#34BA96',
+              },
+            }}/>
         </>
       ) : (
         <>
           <Stack.Screen name="Login" component={Login} />
         </>
       )}
-      </Stack.Navigator>
-    </StyleProvider>
+    </Stack.Navigator>
   );
 };
 
