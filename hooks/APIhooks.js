@@ -98,6 +98,7 @@ const checkToken = async (token) => {
 
 const getAvatar = async () => {
   try {
+    // eslint-disable-next-line no-undef
     const response = await fetch(apiUrl + 'tags/avatar_666');
     const avatarImages = await response.json();
     if (response.ok) {
