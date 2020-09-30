@@ -104,7 +104,7 @@ const StackScreen = () => {
             options={{
               headerPressColorAndroid: "#b8f4b8",
               headerStyle: {
-                backgroundColor: "#FB8B24",
+                backgroundColor: "#90EE90",
               },
             }}
           />

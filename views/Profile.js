@@ -90,6 +90,7 @@ const Profile = ({ navigation }) => {
   );
 };
 
+
 Profile.propTypes = {
   navigation: PropTypes.object,
 };
