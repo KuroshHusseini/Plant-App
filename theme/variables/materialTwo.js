@@ -17,7 +17,7 @@ export default {
   platform,
 
   // Accordion
-  headerStyle: '#edebed',
+
   iconStyle: '#000',
   contentStyle: '#f5f4f5',
   expandedIconStyle: '#000',
@@ -106,7 +106,7 @@ export default {
   checkboxTickColor: '#fff',
 
   // Color
-  brandPrimary: '#4DC955',
+  brandPrimary: '#000',
   brandInfo: '#34BA96',
   brandSuccess: '#228b22',
   brandDanger: '#AB2C4E',
@@ -115,15 +115,14 @@ export default {
   brandLight: '#f4f4f4',
 
   // Container
-  containerBgColor: '#b8f4b8',
-  
+  containerBgColor: '#4DC955',
 
   // Date Picker
   datePickerTextColor: '#000',
   datePickerBg: 'b8f4b8',
 
   // Font
-  DefaultFontSize: 16,
+  DefaultFontSize: 18,
   fontFamily: 'Roboto',
   fontSizeBase: 15,
   get fontSizeH1() {
@@ -142,7 +141,7 @@ export default {
   footerPaddingBottom: 0,
 
   // FooterTab
-  tabBarTextColor: '#bfc6ea',
+  tabBarTextColor: '##ADD8E6',
   tabBarTextSize: 11,
   activeTab: '#4DC955',
   sTabBarActiveTextColor: '#000',
@@ -160,6 +159,7 @@ export default {
   toolbarBtnTextColor: '#000',
   toolbarDefaultBorder: '#38733C',
   iosStatusbar: 'light-content',
+
   get statusBarColor() {
     return color(this.toolbarDefaultBg)
         .darken(0.2)
@@ -243,7 +243,7 @@ export default {
 
   // Text
   textColor: '#000',
-  inverseTextColor: '#000',
+  inverseTextColor: '#fff',
   noteFontSize: 14,
   get defaultTextColor() {
     return this.textColor;
@@ -251,13 +251,13 @@ export default {
 
   // Title
   titleFontfamily: 'Roboto',
-  titleFontSize: 19,
+  titleFontSize: 60,
   subTitleFontSize: 14,
   subtitleColor: '#000',
   titleFontColor: '#000',
 
   // Other
-  borderRadiusBase: 2,
+  borderRadiusBase: 5,
   borderWidth: 1 / PixelRatio.getPixelSizeForLayoutSize(1),
   contentPadding: 10,
   dropdownLinkColor: '#414142',
