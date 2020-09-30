@@ -1,6 +1,7 @@
-import React from "react";
-import { Text, TouchableOpacity, StyleSheet, View } from "react-native";
-import Color from "../constants/Colors";
+/* eslint-disable react/prop-types */
+import React from 'react';
+import {Text, TouchableOpacity, StyleSheet, View} from 'react-native';
+import Color from '../constants/Colors';
 
 const RegisterButton = (props) => {
   return (
@@ -17,13 +18,13 @@ const styles = StyleSheet.create({
     backgroundColor: Color.green,
     paddingVertical: 10,
     paddingHorizontal: 10,
-
-    alignItems: "center",
-    borderRadius: 10,
+    alignItems: 'center',
+    borderRadius: 4,
+    height: 40,
   },
   btnText: {
-    alignItems: "center",
-    color: "white",
+    alignItems: 'center',
+    color: 'white',
     fontSize: 15,
   },
 });

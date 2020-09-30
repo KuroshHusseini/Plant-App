@@ -30,16 +30,16 @@ export default {
   btnUppercaseAndroidText: true,
 
   // Badge
-  badgeBg: '#ED1727',
+  badgeBg: '#b8f4b8',
   badgeColor: '#fff',
   badgePadding: 0,
 
   // Button
   btnFontFamily: 'Roboto',
   btnDisabledBg: '#b5b5b5',
-  buttonPadding: 6,
+  buttonPadding: 4,
   get btnPrimaryBg() {
-    return this.brandPrimary;
+    return this.brandSuccess;
   },
   get btnPrimaryColor() {
     return this.inverseTextColor;
@@ -88,8 +88,8 @@ export default {
   },
 
   // Card
-  cardDefaultBg: '#fff',
-  cardBorderColor: '#ccc',
+  cardDefaultBg: '#4DC955',
+  cardBorderColor: '#38733C',
   cardBorderRadius: 2,
   cardItemPadding: platform === 'ios' ? 10 : 12,
 
@@ -101,25 +101,26 @@ export default {
   CheckboxIconSize: 16,
   CheckboxIconMarginTop: 1,
   CheckboxFontSize: 17,
-  checkboxBgColor: '#039BE5',
+  checkboxBgColor: '#b8f4b8',
   checkboxSize: 20,
   checkboxTickColor: '#fff',
 
   // Color
-  brandPrimary: '#3F51B5',
-  brandInfo: '#62B1F6',
-  brandSuccess: '#5cb85c',
-  brandDanger: '#d9534f',
-  brandWarning: '#f0ad4e',
+  brandPrimary: '#4DC955',
+  brandInfo: '#34BA96',
+  brandSuccess: '#228b22',
+  brandDanger: '#AB2C4E',
+  brandWarning: '#FB8B24',
   brandDark: '#000',
   brandLight: '#f4f4f4',
 
   // Container
-  containerBgColor: '#fff',
+  containerBgColor: '#b8f4b8',
+  
 
   // Date Picker
   datePickerTextColor: '#000',
-  datePickerBg: 'transparent',
+  datePickerBg: 'b8f4b8',
 
   // Font
   DefaultFontSize: 16,
@@ -137,27 +138,27 @@ export default {
 
   // Footer
   footerHeight: 55,
-  footerDefaultBg: '#3F51B5',
+  footerDefaultBg: '#b8f4b8',
   footerPaddingBottom: 0,
 
   // FooterTab
   tabBarTextColor: '#bfc6ea',
   tabBarTextSize: 11,
-  activeTab: '#fff',
-  sTabBarActiveTextColor: '#007aff',
-  tabBarActiveTextColor: '#fff',
-  tabActiveBgColor: '#3F51B5',
+  activeTab: '#4DC955',
+  sTabBarActiveTextColor: '#000',
+  tabBarActiveTextColor: '#000',
+  tabActiveBgColor: '#38733C',
 
   // Header
-  toolbarBtnColor: '#fff',
-  toolbarDefaultBg: '#3F51B5',
+  toolbarBtnColor: '#38733C',
+  toolbarDefaultBg: '#b8f4b8',
   toolbarHeight: 56,
   toolbarSearchIconSize: 23,
   toolbarInputColor: '#fff',
   searchBarHeight: platform === 'ios' ? 30 : 40,
   searchBarInputHeight: platform === 'ios' ? 40 : 50,
-  toolbarBtnTextColor: '#fff',
-  toolbarDefaultBorder: '#3F51B5',
+  toolbarBtnTextColor: '#000',
+  toolbarDefaultBorder: '#38733C',
   iosStatusbar: 'light-content',
   get statusBarColor() {
     return color(this.toolbarDefaultBg)
@@ -196,11 +197,11 @@ export default {
   lineHeight: 24,
 
   // List
-  listBg: 'transparent',
-  listBorderColor: '#c9c9c9',
-  listDividerBg: '#f4f4f4',
+  listBg: '#4DC955',
+  listBorderColor: '#38733C',
+  listDividerBg: '#34BA96',
   listBtnUnderlayColor: '#DDD',
-  listItemPadding: 12,
+  listItemPadding: 8,
   listNoteColor: '#808080',
   listNoteSize: 13,
   listItemSelected: '#3F51B5',
@@ -220,8 +221,8 @@ export default {
   // Segment
   segmentBackgroundColor: '#3F51B5',
   segmentActiveBackgroundColor: '#fff',
-  segmentTextColor: '#fff',
-  segmentActiveTextColor: '#3F51B5',
+  segmentTextColor: '#000',
+  segmentActiveTextColor: '#000',
   segmentBorderColor: '#fff',
   segmentBorderColorMain: '#3F51B5',
 
@@ -230,19 +231,19 @@ export default {
   inverseSpinnerColor: '#1A191B',
 
   // Tab
-  tabDefaultBg: '#3F51B5',
-  topTabBarTextColor: '#b3c7f9',
-  topTabBarActiveTextColor: '#fff',
+  tabDefaultBg: '#b8f4b8',
+  topTabBarTextColor: '#000',
+  topTabBarActiveTextColor: '#000',
   topTabBarBorderColor: '#fff',
   topTabBarActiveBorderColor: '#fff',
 
   // Tabs
-  tabBgColor: '#F8F8F8',
+  tabBgColor: '#b8f4b8',
   tabFontSize: 15,
 
   // Text
   textColor: '#000',
-  inverseTextColor: '#fff',
+  inverseTextColor: '#000',
   noteFontSize: 14,
   get defaultTextColor() {
     return this.textColor;
@@ -252,8 +253,8 @@ export default {
   titleFontfamily: 'Roboto',
   titleFontSize: 19,
   subTitleFontSize: 14,
-  subtitleColor: '#FFF',
-  titleFontColor: '#FFF',
+  subtitleColor: '#000',
+  titleFontColor: '#000',
 
   // Other
   borderRadiusBase: 2,

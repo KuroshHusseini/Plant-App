@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Container,
   Header,
@@ -11,20 +11,24 @@ import {
   Icon,
   Content,
   StyleProvider,
-} from "native-base";
-import getTheme from "../theme/components/";
+
+} from 'native-base';
+import getTheme from '../theme/components';
+import material from '../theme/variables/material';
+
 
 const Layout = (props) => {
-  console.log("Layout", props);
+  console.log('Layout', props);
   const handleBackButtonClick = () => {
     props.navigation.goBack(null);
     return true;
   };
 
   return (
-    <StyleProvider style={getTheme()}>
+    <StyleProvider style = {getTheme(material)}>
       <Container>
         <Header>
+
           <Left>
             {props.backButton && (
               <Button transparent onPress={handleBackButtonClick}>
