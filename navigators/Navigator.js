@@ -40,6 +40,7 @@ const TabScreen = () => {
           // eslint-disable-next-line react/display-name
           tabBarIcon: () => (
             <Ionicons
+              activeColor = '228b22'
               backgroundColor="#b8f4b8"
               name="ios-home"
               size={24}
@@ -63,12 +64,15 @@ const TabScreen = () => {
       <Tab.Screen
         name="Upload"
         component={Upload}
+        activeColor = '#ab2c4e'
         options={{
           // eslint-disable-next-line react/display-name
           tabBarIcon: () => (
             <Entypo name="upload" size={24} color="black" />
           ),
           tabBarColor: '#FB8B24',
+
+
         }}
       />
     </Tab.Navigator>
