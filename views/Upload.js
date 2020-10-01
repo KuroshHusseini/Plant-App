@@ -5,13 +5,18 @@ import FormTextInput from "../components/FormTextInput";
 import { Image, Platform } from "react-native";
 import useUploadForm from "../hooks/UploadHooks";
 import * as ImagePicker from "expo-image-picker";
-import CustomBtn from "../components/CustomBtn";
+
 // eslint-disable-next-line no-unused-vars
 import Constants from "expo-constants";
 import * as Permissions from "expo-permissions";
 import { upload, postTag, appIdentifier } from "../hooks/APIhooks";
 import AsyncStorage from "@react-native-community/async-storage";
 import { Video } from "expo-av";
+import materialTwo from "../theme/variables/materialTwo";
+import getTheme from "../theme/components";
+import { StyleProvider } from "native-base";
+
+// eslint-disable-next-line no-unused-vars
 
 const Upload = ({ navigation }) => {
   const [image, setImage] = useState(null);
@@ -100,64 +105,74 @@ const Upload = ({ navigation }) => {
   };
 
   return (
-    <Container>
-      <Content padder>
-        {image && (
-          <>
-            {fileType === "image" ? (
-              <Image
-                source={{ uri: image }}
-                style={{ height: 400, width: null, flex: 1 }}
-              />
-            ) : (
-              <Video
-                source={{ uri: image }}
-                style={{ height: 400, width: null, flex: 1 }}
-                useNativeControls={true}
-              />
-            )}
-          </>
-        )}
-        <Form>
-          <FormTextInput
-            autoCapitalize="none"
-            placeholder="title"
-            value={inputs.title}
-            onChangeText={(txt) => handleInputChange("title", txt)}
-            error={uploadErrors.title}
-          />
-          <FormTextInput
-            autoCapitalize="none"
-            placeholder="description"
-            value={inputs.description}
-            onChangeText={(txt) => handleInputChange("description", txt)}
-            error={uploadErrors.description}
-          />
-        </Form>
 
-        <Button block onPress={pickImage}>
-          <Text>Choose file </Text>
-        </Button>
+    <StyleProvider style={getTheme(materialTwo)}>
+      <Container>
+        <Content padder>
+          {image && (
+            <>
+              {fileType === "image" ? (
+                <Image
+                  source={{ uri: image }}
+                  style={{ height: 400, width: null, flex: 1 }}
+                />
+              ) : (
+                <Video
+                  source={{ uri: image }}
+                  style={{ height: 400, width: null, flex: 1 }}
+                  useNativeControls={true}
+                />
+              )}
+            </>
+          )}
+          <Form>
+            <FormTextInput
+              
+              autoCapitalize="none"
+              placeholder="title"
+              value={inputs.title}
+              onChangeText={(txt) => handleInputChange("title", txt)}
+              error={uploadErrors.title}
+            />
+            <FormTextInput
 
-        <Button
-          block
-          disabled={
-            uploadErrors.title !== null ||
-            uploadErrors.description !== null ||
-            image === null
-          }
-          onPress={doUpload}
-        >
-          <Text>Upload</Text>
-        </Button>
+              autoCapitalize="none"
+              placeholder="description"
+              value={inputs.description}
+              onChangeText={(txt) => handleInputChange("description", txt)}
+              error={uploadErrors.description}
+            />
+          </Form>
+          <Button
+            style={{ backgroundColor: "#9ACD32" }}
+            block
+            onPress={pickImage}
+          >
+            <Text>Choose file</Text>
+          </Button>
+          <Button
+            block
+            disabled={
+              uploadErrors.title !== null ||
+              uploadErrors.description !== null ||
+              image === null
+            }
+            onPress={doUpload}
+          >
+            <Text>Upload</Text>
+          </Button>
+          {isLoading && <Spinner />}
+          <Button
+            style={{ backgroundColor: "#9ACD32" }}
+            block
+            onPress={doReset}
+          >
+            <Text>Reset</Text>
+          </Button>
+        </Content>
+      </Container>
+    </StyleProvider>
 
-        {isLoading && <Spinner />}
-
-        <Button block onPress={doReset}>
-          <Text>Reset</Text>
-        </Button>
-      </Content>
-    </Container>
   );
 };
 

@@ -95,9 +95,10 @@ const checkToken = async (token) => {
   }
 };
 
+
 const getAvatar = async () => {
   try {
-    const response = await fetch(apiUrl + 'tags/avatar_6');
+    const response = await fetch(apiUrl + 'tags/avatar_666');
     const avatarImages = await response.json();
     if (response.ok) {
       return avatarImages;
