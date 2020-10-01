@@ -15,7 +15,8 @@ const FormTextInput = ({style, error, ...otherProps}) => {
         {error !== '' && <Label>{error}</Label>}
       </View>
     </StyleProvider>
-
+  );
+};
 
 FormTextInput.propTypes = {
   style: PropTypes.object,

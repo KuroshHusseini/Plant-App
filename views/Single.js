@@ -86,7 +86,7 @@ const Single = ({ route }) => {
               <Left>
                 <Icon name={"image"} />
 
-                <Text>{file.title}</Text>
+                <Text style={{ fontSize: 23 }}>{file.title}</Text>
               </Left>
               <Right>
                 <TouchableOpacity>
@@ -125,7 +125,7 @@ const Single = ({ route }) => {
                 )}
               </>
             </CardItem>
-            <CardItem style={{ flexDirection: "row", paddingLeft: 100 }}>
+            <CardItem style={{ flexDirection: "row", alignContent: "center" }}>
               <Text style={{ fontSize: 23 }}>{file.description}</Text>
               <Text style={{ fontSize: 23 }}> By: {owner.username}</Text>
             </CardItem>
