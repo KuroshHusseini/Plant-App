@@ -11,9 +11,11 @@ import {
   Icon,
   Content,
   StyleProvider,
+
 } from 'native-base';
 import getTheme from '../theme/components';
 import material from '../theme/variables/material';
+
 
 const Layout = (props) => {
   console.log('Layout', props);
@@ -21,6 +23,7 @@ const Layout = (props) => {
     props.navigation.goBack(null);
     return true;
   };
+
   return (
     <StyleProvider style = {getTheme(material)}>
       <Container>

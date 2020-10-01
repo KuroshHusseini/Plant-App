@@ -6,7 +6,7 @@ const Home = ({navigation}) => {
   // const {navigation} = props;
   // const navigation = props.navigation;
 
-  return <List navigation={navigation} all />;
+  return <List navigation={navigation} all/>;
 };
 
 Home.propTypes = {

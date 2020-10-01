@@ -18,7 +18,6 @@ import material from '../theme/variables/material';
 import getTheme from '../theme/components';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 
-
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
 
@@ -26,13 +25,13 @@ const TabScreen = () => {
   return (
     <Tab.Navigator
       shifting
-      activeColor = '#228b22'
-      inactiveColor = 'gray'
+      activeColor="#228b22"
+      inactiveColor="gray"
       barStyle={{
         borderColor: '#38733C',
         backgroundColor: '#b8f4b8',
-      }}>
-
+      }}
+    >
       <Tab.Screen
         name="Home"
         component={Home}
@@ -67,16 +66,11 @@ const TabScreen = () => {
         activeColor = '#ab2c4e'
         options={{
           // eslint-disable-next-line react/display-name
-          tabBarIcon: () => (
-            <Entypo name="upload" size={24} color="black" />
-          ),
-          tabBarColor: '#FB8B24',
-
-
+          tabBarIcon: () => <Entypo name="upload" size={24} color="black" />,
+          tabBarColor: '#9ACD32',
         }}
       />
     </Tab.Navigator>
-
   );
 };
 
@@ -89,37 +83,43 @@ const StackScreen = () => {
           <Stack.Screen
             name="Home"
             component={TabScreen}
-            options = {{
+            options={{
               headerPressColorAndroid: '#b8f4b8',
               headerStyle: {
                 backgroundColor: '#b8f4b8',
               },
-            }}/>
+            }}
+          />
           <Stack.Screen
             name="Single"
             component={Single}
-            options = {{
+            options={{
               headerPressColorAndroid: '#b8f4b8',
               headerStyle: {
                 backgroundColor: '#4DC955',
               },
-            }}/>
-          <Stack.Screen name="MyFiles"
+            }}
+          />
+          <Stack.Screen
+            name="MyFiles"
             component={MyFiles}
-            options = {{
+            options={{
               headerPressColorAndroid: '#b8f4b8',
               headerStyle: {
-                backgroundColor: '#FB8B24',
+                backgroundColor: '#90EE90',
               },
-            }}/>
-          <Stack.Screen name="Modify"
+            }}
+          />
+          <Stack.Screen
+            name="Modify"
             component={Modify}
-            options = {{
+            options={{
               headerPressColorAndroid: '#b8f4b8',
               headerStyle: {
                 backgroundColor: '#34BA96',
               },
-            }}/>
+            }}
+          />
         </>
       ) : (
         <>
@@ -132,7 +132,7 @@ const StackScreen = () => {
 
 const Navigator = () => {
   return (
-    <StyleProvider style = {getTheme(material)}>
+    <StyleProvider style={getTheme(material)}>
       <NavigationContainer>
         <StackScreen />
       </NavigationContainer>

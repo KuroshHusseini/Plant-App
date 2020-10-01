@@ -18,12 +18,12 @@ import {
 import RegisterButton from "../components/RegisterButton";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Color from "../constants/Colors";
-import getTheme from '../theme/components';
-import material from '../theme/variables/material';
+import getTheme from "../theme/components";
+import materialTwo from "../theme/variables/materialTwo";
 
-
-const Login = ({navigation}) => { // props is needed for navigation
-  const {setIsLoggedIn, setUser, user} = useContext(AuthContext);
+const Login = ({ navigation }) => {
+  // props is needed for navigation
+  const { setIsLoggedIn, setUser, user } = useContext(AuthContext);
 
   const [showRegistration, setShowRegistration] = useState(true);
   // console.log('Login', isLoggedIn);
@@ -50,7 +50,8 @@ const Login = ({navigation}) => { // props is needed for navigation
   console.log("Login.js", user);
 
   return (
-    <StyleProvider style = {getTheme(material)}>
+
+    <StyleProvider style={getTheme(materialTwo)}>
       <Container>
         <Content padder>
           <Text
@@ -61,22 +62,22 @@ const Login = ({navigation}) => { // props is needed for navigation
               fontSize: 18,
             }}
           >
-          Welcome To Plant-App Community
+            Welcome To Plant-App Community
           </Text>
-          <Title style={{ paddingLeft: 120, marginTop: 10 }}>
+          <Title style={{ marginTop: 10 }}>
             <MaterialCommunityIcons
               name="flower-outline"
-              size={140}
-              color={Color.rose}
+              size={170}
+              color={"#008000"}
             />
           </Title>
 
+
           {showRegistration ? (
-          <LoginForm navigation={navigation} />
-        ) : (
-          <RegisterForm
-            navigation={navigation} />
-        )}
+            <LoginForm navigation={navigation} />
+          ) : (
+            <RegisterForm navigation={navigation} />
+          )}
 
           <View style={{ alignItems: "center", margin: 5 }}>
             <Text>OR</Text>

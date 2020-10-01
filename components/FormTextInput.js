@@ -1,3 +1,4 @@
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Item, Input, View, Label, StyleProvider} from 'native-base';
@@ -14,8 +15,6 @@ const FormTextInput = ({style, error, ...otherProps}) => {
         {error !== '' && <Label>{error}</Label>}
       </View>
     </StyleProvider>
-  );
-};
 
 
 FormTextInput.propTypes = {
