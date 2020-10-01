@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React, {useState, useEffect} from 'react';
 import Navigator from './navigators/Navigator';
 import {AuthProvider} from './contexts/AuthContext';
@@ -8,8 +9,8 @@ const App = () => {
   const [fontReady, setFontReady] = useState(false);
   const loadFonts = async () => {
     await Font.loadAsync({
-      Roboto: require("native-base/Fonts/Roboto.ttf"),
-      Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
+      Roboto: require('native-base/Fonts/Roboto.ttf'),
+      Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
     });
     setFontReady(true);
   };
