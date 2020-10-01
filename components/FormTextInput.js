@@ -1,21 +1,19 @@
-
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Item, Input, View, Label, StyleProvider} from 'native-base';
-import material from '../theme/variables/material';
-import getTheme from '../theme/components';
+import {Item, Input, View, Label} from 'native-base';
 
 const FormTextInput = ({style, error, ...otherProps}) => {
   return (
-    <StyleProvider style = {getTheme(material)}>
-      <View style={{margin: 0}}>
-        <Item>
-          <Input {...otherProps} />
-        </Item>
-        {error !== '' && <Label>{error}</Label>}
-      </View>
-    </StyleProvider>
-
+    <View>
+      <Item>
+        <Input
+          {...otherProps}
+        />
+      </Item>
+      {error !== '' && <Label>{error}</Label>}
+    </View>
+  );
+};
 
 FormTextInput.propTypes = {
   style: PropTypes.object,

@@ -1,6 +1,7 @@
-import React from "react";
-import { Text, TouchableOpacity, StyleSheet, View } from "react-native";
-import Color from "../constants/Colors";
+/* eslint-disable react/prop-types */
+import React from 'react';
+import {Text, TouchableOpacity, StyleSheet, View} from 'react-native';
+import Color from '../constants/Colors';
 
 const LoginRegisterButton = (props) => {
   return (
@@ -22,8 +23,8 @@ const styles = StyleSheet.create({
     height: 40,
   },
   btnText: {
-    alignItems: "center",
-    color: "white",
+    alignItems: 'center',
+    color: 'white',
     fontSize: 15,
   },
 });

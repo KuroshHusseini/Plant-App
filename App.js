@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable max-len */
 import React, {useState, useEffect} from 'react';
 import Navigator from './navigators/Navigator';

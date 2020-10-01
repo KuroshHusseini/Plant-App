@@ -1,15 +1,14 @@
-import React from "react";
-import { Text, TouchableOpacity, StyleSheet, View } from "react-native";
-import Color from "../constants/Colors";
+import React from 'react';
+import {StyleSheet} from 'react-native';
 
-const TextInput = (props) => {
+const TextInput = () => {
   return <TextInput style={styles.input} />;
 };
 
 const styles = StyleSheet.create({
   input: {
     height: 30,
-    borderBottomColor: "grey",
+    borderBottomColor: 'grey',
     borderBottomWidth: 1,
     marginVertical: 10,
   },
