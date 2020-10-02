@@ -84,7 +84,7 @@ $ expo start
 
 ### Trello
 Here is our Trello where you can see how our project moves forward and everything about
-<p align = "center">
+<p>
 https://trello.com/b/JKqkLt4H/plants
 </p>
 
