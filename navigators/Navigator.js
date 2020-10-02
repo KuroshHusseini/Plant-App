@@ -12,6 +12,7 @@ import { AuthContext } from "../contexts/AuthContext";
 import Upload from "../views/Upload";
 import MyFiles from "../views/MyFiles";
 import Modify from "../views/Modify";
+import Favorites from "../views/Favorites";
 import { AntDesign, Ionicons, Entypo } from "@expo/vector-icons";
 import { StyleProvider } from "native-base";
 import material from "../theme/variables/material";
@@ -57,6 +58,16 @@ const TabScreen = () => {
             <AntDesign name="profile" size={24} color="black" />
           ),
           tabBarColor: "#34BA96",
+        }}
+      />
+      <Tab.Screen
+        name="Favorites"
+        componet={Favorites}
+        options={{
+          tabBarIcon: () => (
+            <AntDesign name="favorite" size={24} color="black" />
+          ),
+          tabBarColor: "blue",
         }}
       />
       <Tab.Screen
