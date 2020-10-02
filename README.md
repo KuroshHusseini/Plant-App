@@ -25,7 +25,7 @@ To get started you need:
 2. Change branch to master in project with git:
   
 ```sh 
-  $ git checkout master(If neede)
+  $ git checkout master(If needed)
 ```
 <br/>
 3. Install node module packages:
