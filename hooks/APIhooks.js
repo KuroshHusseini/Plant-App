@@ -38,6 +38,7 @@ const useLoadMedia = (all, userId) => {
   return mediaArray;
 };
 
+
 const postLogIn = async (userCreds) => {
   const options = {
     method: 'POST',
@@ -96,9 +97,9 @@ const checkToken = async (token) => {
 };
 
 
-const getAvatar = async () => {
+const getAvatar = async (userId) => {
   try {
-    const response = await fetch(apiUrl + 'tags/avatar_666');
+    const response = await fetch(apiUrl + 'tags/avatar_' + userId);
     const avatarImages = await response.json();
     if (response.ok) {
       return avatarImages;
@@ -224,6 +225,7 @@ const getUser = async (id, token) => {
   };
   try {
     const response = await fetch(apiUrl + 'users/' + id, options);
+    console.log(response + 'THIS IS WHAT YOU LOOKIN FOR');
     const result = await response.json();
     if (response.ok) {
       return result;
