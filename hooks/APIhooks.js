@@ -38,7 +38,6 @@ const useLoadMedia = (all, userId) => {
   return mediaArray;
 };
 
-
 const postLogIn = async (userCreds) => {
   const options = {
     method: 'POST',
@@ -170,6 +169,29 @@ const updateFile = async (fileId, fileInfo, token) => {
   }
 };
 
+const addFavorite = async (fileId, token) => {
+  console.log('addFavorite', fileId, token);
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-access-token': token,
+    },
+    body: JSON.stringify({file_id: fileId}),
+  };
+  try {
+    const response = await fetch(apiUrl + 'favourites', options);
+    const result = await response.json();
+    if (response.ok) {
+      return result;
+    } else {
+      throw new Error(result.message);
+    }
+  } catch (e) {
+    throw new Error(e.message);
+  }
+};
+
 // Delete a file
 const deleteFile = async (fileId, token) => {
   const options = {
@@ -250,5 +272,6 @@ export {
   deleteFile,
   postTag,
   getUser,
+  addFavorite,
   appIdentifier,
 };
