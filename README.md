@@ -13,7 +13,7 @@ To get started you need:
 <ul>
   <li>A computer</li>
   <li>Connection to the internet</li>
-  <li>Your favorite code editor that suits your web development needs. (VSCode) recommended</li>
+  <li>Your favorite code editor that suits your web & mobile application development needs. (VSCode) recommended</li>
 </ul>
 
 ### Usage
