@@ -12,7 +12,6 @@ import {
   Container,
   StyleProvider,
   Right,
-  View,
 } from "native-base";
 import { Video } from "expo-av";
 import { getUser } from "../hooks/APIhooks";
@@ -29,7 +28,11 @@ const Single = ({ route }) => {
   const [error, setError] = useState(false);
   const [owner, setOwner] = useState({});
   const [videoRef, setVideoRef] = useState(null);
+  const [likes, setLikes] = useState(0);
   const { file } = route.params;
+
+
+
 
   const handleVideoRef = (component) => {
     setVideoRef(component);
@@ -84,14 +87,14 @@ const Single = ({ route }) => {
           <Card>
             <CardItem>
               <Left>
-                <Icon name={"image"} />
+                <Icon name={"images"} />
 
-                <Text style={{ fontSize: 23 }}>{file.title}</Text>
+                <Text style={{ fontSize: 18 }}>{file.title}</Text>
               </Left>
               <Right>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={this.incrementMe}>
                   <Text>
-                    <Icon name="heart"></Icon>
+                    <Icon name="heart"> </Icon>
                   </Text>
                 </TouchableOpacity>
               </Right>
@@ -126,8 +129,8 @@ const Single = ({ route }) => {
               </>
             </CardItem>
             <CardItem style={{ flexDirection: "row", alignContent: "center" }}>
-              <Text style={{ fontSize: 23 }}>{file.description}</Text>
-              <Text style={{ fontSize: 23 }}> By: {owner.username}</Text>
+              <Text style={{ fontSize: 18 }}>{file.description}</Text>
+              <Text style={{ fontSize: 18 }}> By: {owner.username}</Text>
             </CardItem>
           </Card>
         </Content>
