@@ -35,7 +35,7 @@ $ npm i
 ```
 <br/>
 
-5. Start Node JS app
+5. npm start
 
 ```sh 
 $ npm start
@@ -83,11 +83,9 @@ $ expo start
 </details>
 
 ### Trello
-Here is our Trello where you can see how our project moves forward and everything about
+Here is our Trello where you can see how our project moves forward and everything about it. 
 <p>
 https://trello.com/b/JKqkLt4H/plants
 </p>
 
 
-### Change log
-See CHANGELOG [here](CHANGELOG.md)
