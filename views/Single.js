@@ -19,8 +19,8 @@ import AsyncStorage from "@react-native-community/async-storage";
 import * as ScreenOrientation from "expo-screen-orientation";
 import material from "../theme/variables/material";
 import getTheme from "../theme/components";
-import { Button } from "react-native-paper";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { addFavorite } from "../hooks/APIhooks";
 
 const mediaUrl = "http://media.mw.metropolia.fi/wbma/uploads/";
 
@@ -28,11 +28,9 @@ const Single = ({ route }) => {
   const [error, setError] = useState(false);
   const [owner, setOwner] = useState({});
   const [videoRef, setVideoRef] = useState(null);
+
   const [likes, setLikes] = useState(0);
   const { file } = route.params;
-
-
-
 
   const handleVideoRef = (component) => {
     setVideoRef(component);
@@ -87,14 +85,13 @@ const Single = ({ route }) => {
           <Card>
             <CardItem>
               <Left>
-                <Icon name={"images"} />
-
-                <Text style={{ fontSize: 18 }}>{file.title}</Text>
+                <Icon name={"image"} />
+                <Text style={{ fontSize: 23 }}>{file.title}</Text>
               </Left>
               <Right>
                 <TouchableOpacity onPress={this.incrementMe}>
                   <Text>
-                    <Icon name="heart"> </Icon>
+                    <Icon name="heart" onPress={addFavorite}></Icon>
                   </Text>
                 </TouchableOpacity>
               </Right>
@@ -128,6 +125,7 @@ const Single = ({ route }) => {
                 )}
               </>
             </CardItem>
+
             <CardItem style={{ flexDirection: "row", alignContent: "center" }}>
               <Text style={{ fontSize: 18 }}>{file.description}</Text>
               <Text style={{ fontSize: 18 }}> By: {owner.username}</Text>
