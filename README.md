@@ -1,4 +1,4 @@
-# Plant-App / React-Native / 
+# Plant-App / React-Native 
 
 ## Description
 Plant-App is an Application where you can upload images of plants onto their respective pages, comment on user images, and read up on recommended caretaking procedures. 
