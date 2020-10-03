@@ -67,11 +67,12 @@ Following instructions might not work or be needed depending what you might be u
 $ npm i
 ```
 <br/>
-4. Install all required dependencies
+4. Install all required dependencies:
+
 ```sh 
 $ expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
-
 ```
+
 <br/>
 
 5. Start the app.
