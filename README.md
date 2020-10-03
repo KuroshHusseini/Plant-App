@@ -58,20 +58,7 @@ $ npm install --save react-navigation-drawer
 
 <br/>
 
-4. Install all required dependencies:
-
-```sh 
-$ expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
-```
-<br/>
-
-4. Install all required dependencies:
-
-```sh 
-$ expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
-```
-<br/>
-5. npm start
+6. npm start
 
 ```sh 
 $ npm start
