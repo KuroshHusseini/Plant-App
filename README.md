@@ -41,6 +41,13 @@ $ npm i
 $ expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
 ```
 
+
+
+
+<br/>
+
+
+
 5. npm start
 
 ```sh 
@@ -53,47 +60,13 @@ or
 $ expo start
 ```
 <br/>
-</details>
 
-#### Server computer
-<details><summary>Show instructions</summary>
-Following instructions might not work or be needed depending what you might be using
-<br/>
-1. Open project in code editor.
-<br/>
-2. You should be in master branch. If not, you can try this git command:
 
-```sh 
-  $ git checkout master
-```
-</br>
-  
-3. Install node module packages:
-```sh 
-$ npm i
-```
-<br/>
-4. Install all required dependencies:
 
-```sh 
-$ expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
-```
 
-<br/>
-
-5. Start the app.
-
-```sh 
-$ npm start
-```
-
-or 
-
-```sh 
-$ expo start
-```
 
 </details>
+
 
 ### Trello
 Here is our Trello where you can see how our project moves forward and everything about it. 
