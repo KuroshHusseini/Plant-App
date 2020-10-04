@@ -67,7 +67,7 @@ const Login = ({ navigation }) => {
           <Title style={{ marginTop: 10 }}>
             <MaterialCommunityIcons
               name="flower-outline"
-              size={170}
+              size={160}
               color={"#008000"}
             />
           </Title>

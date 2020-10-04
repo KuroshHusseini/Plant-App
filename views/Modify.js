@@ -1,25 +1,24 @@
-import React, {useEffect, useState} from 'react';
-import PropTypes from 'prop-types';
-import {Button, Container, Content, Form, Spinner, Text} from 'native-base';
-import FormTextInput from '../components/FormTextInput';
-import useUploadForm from '../hooks/UploadHooks';
+import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
+import { Button, Container, Content, Form, Spinner, Text } from "native-base";
+import FormTextInput from "../components/FormTextInput";
+import useUploadForm from "../hooks/UploadHooks";
 // eslint-disable-next-line no-unused-vars
-import {updateFile} from '../hooks/APIhooks';
-import AsyncStorage from '@react-native-community/async-storage';
+import { updateFile } from "../hooks/APIhooks";
+import AsyncStorage from "@react-native-community/async-storage";
 
-
-const Modify = ({navigation, route}) => {
-  const {file} = route.params;
+const Modify = ({ navigation, route }) => {
+  const { file } = route.params;
   const [isLoading, setIsLoading] = useState(false);
 
   const doModify = async () => {
     setIsLoading(true);
     try {
-      const userToken = await AsyncStorage.getItem('userToken');
+      const userToken = await AsyncStorage.getItem("userToken");
       const result = await updateFile(file.file_id, inputs, userToken);
-      console.log('update file info:', result.message);
+      console.log("update file info:", result.message);
     } catch (e) {
-      console.log('update error:', e.message);
+      console.log("update error:", e.message);
     } finally {
       setIsLoading(false);
     }
@@ -54,21 +53,24 @@ const Modify = ({navigation, route}) => {
             autoCapitalize="none"
             placeholder="title"
             value={inputs.title}
-            onChangeText={(txt) => handleInputChange('title', txt)}
+            onChangeText={(txt) => handleInputChange("title", txt)}
             error={uploadErrors.title}
           />
           <FormTextInput
             autoCapitalize="none"
             placeholder="description"
             value={inputs.description}
-            onChangeText={(txt) => handleInputChange('description', txt)}
+            onChangeText={(txt) => handleInputChange("description", txt)}
             error={uploadErrors.description}
           />
         </Form>
-        <Button block
-          disabled={(uploadErrors.title !== null ||
-            uploadErrors.description !== null)}
-          onPress={doModify}>
+        <Button
+          block
+          disabled={
+            uploadErrors.title !== null || uploadErrors.description !== null
+          }
+          onPress={doModify}
+        >
           <Text>Save</Text>
         </Button>
         {isLoading && <Spinner />}
@@ -84,6 +86,5 @@ Modify.propTypes = {
   navigation: PropTypes.object,
   route: PropTypes.object,
 };
-
 
 export default Modify;
