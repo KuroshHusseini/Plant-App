@@ -1,11 +1,12 @@
-import { StatusBar } from "expo-status-bar";
-import React from "react";
-import { StyleSheet, SafeAreaView } from "react-native";
-import List from "../components/List";
-import PropTypes from "prop-types";
-import { StyleProvider } from "native-base";
+/* eslint-disable no-unused-vars */
+import {StatusBar} from 'expo-status-bar';
+import React from 'react';
+import {StyleSheet, SafeAreaView} from 'react-native';
+import List from '../components/List';
+import PropTypes from 'prop-types';
+import {StyleProvider} from 'native-base';
 
-const MyFiles = ({ navigation }) => {
+const MyFiles = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <List navigation={navigation} all={false} />
@@ -16,7 +17,7 @@ const MyFiles = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     paddingHorizontal: 10,
   },
 });

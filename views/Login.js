@@ -17,7 +17,6 @@ import {
 } from "native-base";
 import RegisterButton from "../components/RegisterButton";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import Color from "../constants/Colors";
 import getTheme from "../theme/components";
 import materialTwo from "../theme/variables/materialTwo";
 
