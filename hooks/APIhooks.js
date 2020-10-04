@@ -111,6 +111,7 @@ const getAvatar = async (userId) => {
   }
 };
 
+
 // adding a favorite image to your account
 const addFavorite = async (fileId, token) => {
   console.log('addFavorite', fileId, token);
