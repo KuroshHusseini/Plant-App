@@ -113,28 +113,28 @@ const getAvatar = async (userId) => {
 
 
 // adding a favorite image to your account
-const addFavorite = async (fileId, token) => {
-  console.log('addFavorite', fileId, token);
-  const options = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-access-token': token,
-    },
-    body: JSON.stringify({file_id: fileId}),
-  };
-  try {
-    const response = await fetch(apiUrl + 'favourites', options);
-    const result = await response.json();
-    if (response.ok) {
-      return result;
-    } else {
-      throw new Error(result.message);
-    }
-  } catch (e) {
-    throw new Error(e.message);
-  }
-};
+// const addFavorite = async (fileId, token) => {
+//   console.log('addFavorite', fileId, token);
+//   const options = {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//       'x-access-token': token,
+//     },
+//     body: JSON.stringify({file_id: fileId}),
+//   };
+//   try {
+//     const response = await fetch(apiUrl + 'favourites', options);
+//     const result = await response.json();
+//     if (response.ok) {
+//       return result;
+//     } else {
+//       throw new Error(result.message);
+//     }
+//   } catch (e) {
+//     throw new Error(e.message);
+//   }
+// };
 
 
 const checkAvailable = async (username) => {
@@ -275,6 +275,6 @@ export {
   deleteFile,
   postTag,
   getUser,
-  addFavorite,
+  // addFavorite,
   appIdentifier,
 };

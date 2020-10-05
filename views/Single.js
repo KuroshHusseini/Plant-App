@@ -16,12 +16,13 @@ import {
   Right,
 } from "native-base";
 import { Video } from "expo-av";
-import { getUser, addFavorite } from "../hooks/APIhooks";
+import { getUser } from "../hooks/APIhooks";
 import AsyncStorage from "@react-native-community/async-storage";
 import * as ScreenOrientation from "expo-screen-orientation";
 import material from "../theme/variables/material";
 import getTheme from "../theme/components";
 import { TouchableOpacity } from "react-native-gesture-handler";
+// import CommentForm from "../components/CommentForm";
 
 const mediaUrl = "http://media.mw.metropolia.fi/wbma/uploads/";
 
@@ -92,7 +93,7 @@ const Single = ({ route }) => {
               <Right>
                 <TouchableOpacity onPress={this.incrementMe}>
                   <Text>
-                    <Icon name="heart" onPress={addFavorite}></Icon>
+                    {/* <Icon name="heart" onPress={addFavorite}></Icon> */}
                   </Text>
                 </TouchableOpacity>
               </Right>
@@ -132,6 +133,7 @@ const Single = ({ route }) => {
               <Text style={{ fontSize: 18 }}> By: {owner.username}</Text>
             </CardItem>
           </Card>
+          {/* <CommentForm /> */}
         </Content>
       </Container>
     </StyleProvider>
