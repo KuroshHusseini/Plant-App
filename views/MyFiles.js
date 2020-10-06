@@ -1,25 +1,19 @@
 /* eslint-disable no-unused-vars */
 import {StatusBar} from 'expo-status-bar';
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {View} from 'react-native';
 import List from '../components/List';
 import PropTypes from 'prop-types';
+import {Container} from 'native-base';
 
 const MyFiles = ({navigation}) => {
   return (
-    <View style={styles.container}>
+    <Container>
       <List navigation={navigation} all={false} />
       <StatusBar style="auto" />
-    </View>
+    </Container>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#fff',
-    paddingHorizontal: 10,
-  },
-});
 
 MyFiles.propTypes = {
   navigation: PropTypes.object,

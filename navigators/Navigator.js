@@ -5,7 +5,7 @@ import React, {useContext} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import Home from '../views/Home';
-// import Favorites from '../views/Favorites';
+import Favorites from '../views/Favorites';
 import Profile from '../views/Profile';
 import Single from '../views/Single';
 import Login from '../views/Login';
@@ -60,16 +60,21 @@ const TabScreen = () => {
           tabBarColor: '#34BA96',
         }}
       />
-      {/* <Tab.Screen
+      { <Tab.Screen
         name="Favorites"
         component={Favorites}
         options={{
           tabBarIcon: () => (
-            <AntDesign name="favorite" size={24} color="black" />
+            <Ionicons
+              backgroundColor="#b8f4b8"
+              name="ios-heart"
+              size={24}
+              color="black"
+            />
           ),
-          tabBarColor: 'blue',
+          tabBarColor: '#fcff57',
         }}
-      /> */}
+      /> }
       <Tab.Screen
         name="Upload"
         component={Upload}
