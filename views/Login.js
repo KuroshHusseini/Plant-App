@@ -7,6 +7,7 @@ import AsyncStorage from "@react-native-community/async-storage";
 import { checkToken } from "../hooks/APIhooks";
 import LoginForm from "../components/LoginForm";
 import RegisterForm from "../components/RegisterForm";
+import ImageIcon from "../components/ImageIcon";
 import {
   Title,
   Container,
@@ -49,28 +50,20 @@ const Login = ({ navigation }) => {
   console.log("Login.js", user);
 
   return (
-
     <StyleProvider style={getTheme(materialTwo)}>
       <Container>
         <Content padder>
-          <Text
+          <Title
             style={{
               fontWeight: "bold",
-              paddingLeft: 45,
+
               marginTop: 5,
               fontSize: 18,
             }}
           >
             Welcome To Plant-App Community
-          </Text>
-          <Title style={{ marginTop: 10 }}>
-            <MaterialCommunityIcons
-              name="flower-outline"
-              size={170}
-              color={"#008000"}
-            />
           </Title>
-
+          <ImageIcon />
 
           {showRegistration ? (
             <LoginForm navigation={navigation} />

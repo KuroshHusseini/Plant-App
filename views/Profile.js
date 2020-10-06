@@ -1,8 +1,8 @@
-import React, {useContext, useState, useEffect} from 'react';
-import {Image} from 'react-native';
-import {AuthContext} from '../contexts/AuthContext';
-import PropTypes from 'prop-types';
-import AsyncStorage from '@react-native-community/async-storage';
+import React, { useContext, useState, useEffect } from "react";
+import { Image } from "react-native";
+import { AuthContext } from "../contexts/AuthContext";
+import PropTypes from "prop-types";
+import AsyncStorage from "@react-native-community/async-storage";
 import {
   Container,
   Content,
@@ -13,16 +13,16 @@ import {
   Body,
   Button,
   StyleProvider,
-} from 'native-base';
-import getTheme from '../theme/components';
-import {getAvatar} from '../hooks/APIhooks';
-import material from '../theme/variables/material';
+} from "native-base";
+import getTheme from "../theme/components";
+import { getAvatar } from "../hooks/APIhooks";
+import material from "../theme/variables/material";
 
-const mediaUrl = 'http://media.mw.metropolia.fi/wbma/uploads/';
+const mediaUrl = "http://media.mw.metropolia.fi/wbma/uploads/";
 
-const Profile = ({navigation}) => {
-  const {setIsLoggedIn, user} = useContext(AuthContext);
-  const [avatar, setAvatar] = useState([{filename: ''}]);
+const Profile = ({ navigation }) => {
+  const { setIsLoggedIn, user } = useContext(AuthContext);
+  const [avatar, setAvatar] = useState([{ filename: "" }]);
 
   const fetchAvatar = async () => {
     setAvatar(await getAvatar(user.user_id));
@@ -32,13 +32,13 @@ const Profile = ({navigation}) => {
     fetchAvatar();
   }, []);
 
-  console.log('Profile.js', avatar[0].filename);
+  console.log("Profile.js", avatar[0].filename);
 
-  console.log('logged in user data:', user);
+  console.log("logged in user data:", user);
   const logout = async () => {
     setIsLoggedIn(false);
     await AsyncStorage.clear();
-    navigation.navigate('Login');
+    navigation.navigate("Login");
   };
   return (
     <StyleProvider style={getTheme(material)}>
@@ -52,8 +52,8 @@ const Profile = ({navigation}) => {
               </CardItem>
               <CardItem cardBody>
                 <Image
-                  source={{uri: mediaUrl + avatar[0].filename}}
-                  style={{height: 300, width: null, flex: 1}}
+                  source={{ uri: mediaUrl + avatar[0].filename }}
+                  style={{ height: 300, width: null, flex: 1 }}
                 />
               </CardItem>
               <CardItem bordered>
@@ -65,17 +65,17 @@ const Profile = ({navigation}) => {
               <CardItem bordered>
                 <Body>
                   <Button
-                    style={{backgroundColor: '#34BA96'}}
+                    style={{ backgroundColor: "#34BA96" }}
                     block
                     onPress={logout}
                   >
                     <Text>Logout</Text>
                   </Button>
                   <Button
-                    style={{backgroundColor: '#34BA96'}}
+                    style={{ backgroundColor: "#34BA96" }}
                     block
                     onPress={() => {
-                      navigation.navigate('MyFiles');
+                      navigation.navigate("MyFiles");
                     }}
                   >
                     <Text>My files</Text>
@@ -89,7 +89,6 @@ const Profile = ({navigation}) => {
     </StyleProvider>
   );
 };
-
 
 Profile.propTypes = {
   navigation: PropTypes.object,
