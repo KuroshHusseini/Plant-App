@@ -1,23 +1,23 @@
-import { useState } from "react";
-import { validator } from "../utils/validator";
+import {useState} from 'react';
+import {validator} from '../utils/validator';
 
 const constraints = {
   comment: {
     presence: {
-      message: "Cannot be empty.",
+      message: 'Cannot be empty.',
     },
     length: {
       minimum: 3,
-      message: "needs to be at least 3 characters.",
+      message: 'needs to be at least 3 characters.',
     },
   },
 };
 
-const useCommentForm = (callback) => {
+const useCommentForm = () => {
   const [commentErrors, setCommentErrors] = useState({});
   const [inputs, setInputs] = useState({
-    comment: "",
-    file_id: "",
+    comment: '',
+    file_id: '',
   });
 
   const handleInputChange = (name, text) => {
@@ -38,7 +38,7 @@ const useCommentForm = (callback) => {
   };
 
   const validateOnSend = () => {
-    const commentError = validator("comment", inputs.comment, constraints);
+    const commentError = validator('comment', inputs.comment, constraints);
     if (commentError !== null) {
       return false;
     } else {
