@@ -22,7 +22,7 @@ import * as ScreenOrientation from "expo-screen-orientation";
 import material from "../theme/variables/material";
 import getTheme from "../theme/components";
 import { TouchableOpacity } from "react-native-gesture-handler";
-// import CommentForm from "../components/CommentForm";
+import CommentForm from "../components/CommentForm";
 
 const mediaUrl = "http://media.mw.metropolia.fi/wbma/uploads/";
 
@@ -91,7 +91,7 @@ const Single = ({ route }) => {
                 <Text style={{ fontSize: 23 }}>{file.title}</Text>
               </Left>
               <Right>
-                <TouchableOpacity onPress={this.incrementMe}>
+                <TouchableOpacity>
                   <Text>
                     {/* <Icon name="heart" onPress={addFavorite}></Icon> */}
                   </Text>
@@ -133,7 +133,7 @@ const Single = ({ route }) => {
               <Text style={{ fontSize: 18 }}> By: {owner.username}</Text>
             </CardItem>
           </Card>
-          {/* <CommentForm /> */}
+          <CommentForm file_Id={file.file_id} />
         </Content>
       </Container>
     </StyleProvider>
