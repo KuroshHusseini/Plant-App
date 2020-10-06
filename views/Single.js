@@ -14,15 +14,15 @@ import {
   Container,
   StyleProvider,
   Right,
-} from "native-base";
-import { Video } from "expo-av";
+} from 'native-base';
+import {Video} from 'expo-av';
 import {getUser, addFavorite} from '../hooks/APIhooks';
-import AsyncStorage from "@react-native-community/async-storage";
-import * as ScreenOrientation from "expo-screen-orientation";
-import material from "../theme/variables/material";
-import getTheme from "../theme/components";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import CommentForm from "../components/CommentForm";
+import AsyncStorage from '@react-native-community/async-storage';
+import * as ScreenOrientation from 'expo-screen-orientation';
+import material from '../theme/variables/material';
+import getTheme from '../theme/components';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import CommentForm from '../components/CommentForm';
 
 
 const mediaUrl = 'http://media.mw.metropolia.fi/wbma/uploads/';

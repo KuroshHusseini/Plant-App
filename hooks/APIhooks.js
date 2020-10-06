@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import axios from 'axios';
 import {useState, useEffect} from 'react';
 
@@ -243,15 +244,15 @@ const postTag = async (tag, token) => {
 
 const postComment = async (comment, token) => {
   const options = {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
-      "x-access-token": token,
+      'Content-Type': 'application/json',
+      'x-access-token': token,
     },
     body: JSON.stringify(comment),
   };
   try {
-    const response = await fetch(apiUrl + "comment", options);
+    const response = await fetch(apiUrl + 'comment', options);
     const result = await response.json();
     if (response.ok) {
       return result;
@@ -263,8 +264,6 @@ const postComment = async (comment, token) => {
   }
   // http://media.mw.metropolia.fi/wbma/docs/#api-Tag-PostTag
 };
-
-
 
 
 // get user info
