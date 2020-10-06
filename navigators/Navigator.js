@@ -62,7 +62,7 @@ const TabScreen = () => {
       />
       {/* <Tab.Screen
         name="Favorites"
-        componet={Favorites}
+        component={Favorites}
         options={{
           tabBarIcon: () => (
             <AntDesign name="favorite" size={24} color="black" />
