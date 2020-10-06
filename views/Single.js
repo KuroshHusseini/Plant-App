@@ -91,9 +91,12 @@ const Single = ({route}) => {
                 <Text style={{fontSize: 23}}>{file.title}</Text>
               </Left>
               <Right>
-                <TouchableOpacity onPress={this.incrementMe}>
+                <TouchableOpacity onPress={async ()=>{
+                  const userToken = await AsyncStorage.getItem('userToken');
+                  addFavorite(file.file_id, userToken );
+                }}>
                   <Text>
-                    <Icon name="heart" onPress={addFavorite}></Icon>
+                    <Icon name="heart"></Icon>
                   </Text>
                 </TouchableOpacity>
               </Right>

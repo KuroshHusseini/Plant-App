@@ -250,7 +250,6 @@ const getUser = async (id, token) => {
   };
   try {
     const response = await fetch(apiUrl + 'users/' + id, options);
-    console.log(response + 'THIS IS WHAT YOU LOOKIN FOR');
     const result = await response.json();
     if (response.ok) {
       return result;
