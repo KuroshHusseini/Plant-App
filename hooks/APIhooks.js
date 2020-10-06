@@ -113,28 +113,28 @@ const getAvatar = async (userId) => {
 
 
 // adding a favorite image to your account
-const addFavorite = async (fileId, token) => {
-  console.log('addFavorite', fileId, token);
-  const options = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-access-token': token,
-    },
-    body: JSON.stringify({file_id: fileId}),
-  };
-  try {
-    const response = await fetch(apiUrl + 'favourites', options);
-    const result = await response.json();
-    if (response.ok) {
-      return result;
-    } else {
-      throw new Error(result.message);
-    }
-  } catch (e) {
-    throw new Error(e.message);
-  }
-};
+// const addFavorite = async (fileId, token) => {
+//   console.log('addFavorite', fileId, token);
+//   const options = {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//       'x-access-token': token,
+//     },
+//     body: JSON.stringify({file_id: fileId}),
+//   };
+//   try {
+//     const response = await fetch(apiUrl + 'favourites', options);
+//     const result = await response.json();
+//     if (response.ok) {
+//       return result;
+//     } else {
+//       throw new Error(result.message);
+//     }
+//   } catch (e) {
+//     throw new Error(e.message);
+//   }
+// };
 
 
 const checkAvailable = async (username) => {
@@ -240,6 +240,33 @@ const postTag = async (tag, token) => {
   // http://media.mw.metropolia.fi/wbma/docs/#api-Tag-PostTag
 };
 
+
+const postComment = async (comment, token) => {
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "x-access-token": token,
+    },
+    body: JSON.stringify(comment),
+  };
+  try {
+    const response = await fetch(apiUrl + "comment", options);
+    const result = await response.json();
+    if (response.ok) {
+      return result;
+    } else {
+      throw new Error(result.message);
+    }
+  } catch (e) {
+    throw new Error(e.message);
+  }
+  // http://media.mw.metropolia.fi/wbma/docs/#api-Tag-PostTag
+};
+
+
+
+
 // get user info
 const getUser = async (id, token) => {
   const options = {
@@ -274,6 +301,6 @@ export {
   deleteFile,
   postTag,
   getUser,
-  addFavorite,
+  // addFavorite,
   appIdentifier,
 };
