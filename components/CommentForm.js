@@ -1,6 +1,5 @@
-import React, { useContext, useState, useEffect } from "react";
-import { StyleSheet, TextInput, Form, View, Button, Text } from "native-base";
-import { AuthContext } from "../contexts/AuthContext";
+import React, { useState, useEffect } from "react";
+import { View, Button, Text } from "native-base";
 import useCommentForm from "../hooks/CommentHooks";
 import FormTextInput from "./FormTextInput";
 import AsyncStorage from "@react-native-community/async-storage";
@@ -49,20 +48,60 @@ const CommentForm = ({ fileId }) => {
     fetchComments();
   }, []);
   console.log("rivi 51", comments);
+
   return (
-    <View>
-      <View>
-        <FormTextInput
-          placeholder="What is you opinion :)"
-          onChangeText={(txt) => handleInputChange("comment", txt)}
-          value={inputs.comment}
-        />
-        <Button title="Comment" onPress={doComment}>
-          <Text>Comment</Text>
+    <View style={{ padding: 5 }}>
+      <View style={{ padding: 5, flexDirection: "row" }}>
+        <View
+          style={{
+            width: "80%",
+            height: 45,
+            marginLeft: -5,
+            marginRight: 5,
+            borderColor: "#006400",
+            borderRadius: 10,
+            borderWidth: 2,
+          }}
+        >
+          <FormTextInput
+            placeholder="Write your opinion... :)"
+            onChangeText={(txt) => handleInputChange("comment", txt)}
+            value={inputs.comment}
+            style={{
+              padding: 10,
+            }}
+          />
+        </View>
+
+        <Button
+          title="Comment"
+          onPress={doComment}
+          style={{ width: 85, borderRadius: 10 }}
+        >
+          <Text style={{ fontSize: 12 }}>Comment</Text>
         </Button>
+      </View>
+      <View
+        style={{
+          justifyContent: "space-around",
+          paddingVertical: 5,
+          borderRadius: 10,
+        }}
+      >
         <View>
           {comments.map((commentti) => (
-            <Text key={commentti.comment_id}>{commentti.comment}</Text>
+            <View
+              key={commentti.comment_id}
+              style={{
+                padding: 5,
+                height: 45,
+                borderColor: "#006400",
+                borderWidth: 2,
+                borderRadius: 10,
+              }}
+            >
+              <Text>{commentti.comment}</Text>
+            </View>
           ))}
         </View>
       </View>

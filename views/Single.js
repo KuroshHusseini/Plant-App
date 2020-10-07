@@ -123,7 +123,7 @@ const Single = ({route}) => {
                     resizeMode="cover"
                     posterSource={{uri: mediaUrl + file.screenshot}}
                     usePoster={true}
-                    posterStyle={{height: 400, width: null}}
+                    posterStyle={{height: 250, width: null}}
                     onError={(err) => {
                       console.log('video error', err);
                       setError(true);
