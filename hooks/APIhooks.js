@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
-import axios from 'axios';
-import {useState, useEffect} from 'react';
+import axios from "axios";
+import { useState, useEffect } from "react";
 
-const apiUrl = 'http://media.mw.metropolia.fi/wbma/';
-const appIdentifier = 'Plant-App-Test';
+const apiUrl = "http://media.mw.metropolia.fi/wbma/";
+const appIdentifier = "Plant-App-Test";
 
 const useLoadMedia = (all, userId) => {
   const [mediaArray, setMediaArray] = useState([]);
@@ -11,18 +11,18 @@ const useLoadMedia = (all, userId) => {
   const loadMedia = async () => {
     try {
       // const response = await fetch(apiUrl + 'media');
-      const response = await fetch(apiUrl + 'tags/' + appIdentifier);
+      const response = await fetch(apiUrl + "tags/" + appIdentifier);
       const json = await response.json();
       let media = await Promise.all(
-          json.map(async (item) => {
-            const resp2 = await fetch(apiUrl + 'media/' + item.file_id);
-            const json2 = await resp2.json();
-            return json2;
-          }),
+        json.map(async (item) => {
+          const resp2 = await fetch(apiUrl + "media/" + item.file_id);
+          const json2 = await resp2.json();
+          return json2;
+        })
       );
       // console.log('loadMedia', media);
       if (all) {
-        console.log('all media', media);
+        console.log("all media", media);
         setMediaArray(media);
       } else {
         media = media.filter((item) => {
@@ -43,12 +43,12 @@ const useLoadMedia = (all, userId) => {
 
 const postLogIn = async (userCreds) => {
   const options = {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(userCreds),
   };
   try {
-    const response = await fetch(apiUrl + 'login', options);
+    const response = await fetch(apiUrl + "login", options);
     const userData = await response.json();
     if (response.ok) {
       return userData;
@@ -62,13 +62,13 @@ const postLogIn = async (userCreds) => {
 
 const postRegistration = async (newUser) => {
   const options = {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(newUser),
   };
   try {
     console.log(newUser);
-    const response = await fetch(apiUrl + 'users', options);
+    const response = await fetch(apiUrl + "users", options);
     const result = await response.json();
     if (response.ok) {
       return result;
@@ -82,11 +82,11 @@ const postRegistration = async (newUser) => {
 
 const checkToken = async (token) => {
   const options = {
-    method: 'GET',
-    headers: {'x-access-token': token},
+    method: "GET",
+    headers: { "x-access-token": token },
   };
   try {
-    const response = await fetch(apiUrl + 'users/user', options);
+    const response = await fetch(apiUrl + "users/user", options);
     const userData = await response.json();
     if (response.ok) {
       return userData;
@@ -100,7 +100,7 @@ const checkToken = async (token) => {
 
 const getAvatar = async (userId) => {
   try {
-    const response = await fetch(apiUrl + 'tags/avatar_' + userId);
+    const response = await fetch(apiUrl + "tags/avatar_" + userId);
     const avatarImages = await response.json();
     if (response.ok) {
       return avatarImages;
@@ -112,41 +112,39 @@ const getAvatar = async (userId) => {
   }
 };
 
-
 // adding a favorite image to your account
-// const addFavorite = async (fileId, token) => {
-//   console.log('addFavorite', fileId, token);
-//   const options = {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//       'x-access-token': token,
-//     },
-//     body: JSON.stringify({file_id: fileId}),
-//   };
-//   try {
-//     const response = await fetch(apiUrl + 'favourites', options);
-//     const result = await response.json();
-//     if (response.ok) {
-//       return result;
-//     } else {
-//       throw new Error(result.message);
-//     }
-//   } catch (e) {
-//     throw new Error(e.message);
-//   }
-// };
-
+const addFavorite = async (fileId, token) => {
+  console.log("addFavorite", fileId, token);
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "x-access-token": token,
+    },
+    body: JSON.stringify({ file_id: fileId }),
+  };
+  try {
+    const response = await fetch(apiUrl + "favourites", options);
+    const result = await response.json();
+    if (response.ok) {
+      return result;
+    } else {
+      throw new Error(result.message);
+    }
+  } catch (e) {
+    throw new Error(e.message);
+  }
+};
 
 const checkAvailable = async (username) => {
   try {
-    const response = await fetch(apiUrl + 'users/username/' + username);
+    const response = await fetch(apiUrl + "users/username/" + username);
     const resultData = await response.json();
     if (response.ok) {
       if (resultData.available) {
         return null;
       } else {
-        return 'Username ' + username + ' is not available.';
+        return "Username " + username + " is not available.";
       }
     } else {
       throw new Error(resultData.message);
@@ -158,10 +156,10 @@ const checkAvailable = async (username) => {
 
 const upload = async (fd, token) => {
   const options = {
-    method: 'POST',
-    headers: {'x-access-token': token},
+    method: "POST",
+    headers: { "x-access-token": token },
     data: fd,
-    url: apiUrl + 'media',
+    url: apiUrl + "media",
   };
 
   try {
@@ -176,15 +174,15 @@ const upload = async (fd, token) => {
 // Update a file
 const updateFile = async (fileId, fileInfo, token) => {
   const options = {
-    method: 'PUT',
+    method: "PUT",
     headers: {
-      'Content-Type': 'application/json',
-      'x-access-token': token,
+      "Content-Type": "application/json",
+      "x-access-token": token,
     },
     body: JSON.stringify(fileInfo),
   };
   try {
-    const response = await fetch(apiUrl + 'media/' + fileId, options);
+    const response = await fetch(apiUrl + "media/" + fileId, options);
     const result = await response.json();
     if (response.ok) {
       return result;
@@ -199,13 +197,13 @@ const updateFile = async (fileId, fileInfo, token) => {
 // Delete a file
 const deleteFile = async (fileId, token) => {
   const options = {
-    method: 'DELETE',
+    method: "DELETE",
     headers: {
-      'x-access-token': token,
+      "x-access-token": token,
     },
   };
   try {
-    const response = await fetch(apiUrl + 'media/' + fileId, options);
+    const response = await fetch(apiUrl + "media/" + fileId, options);
     const result = await response.json();
     if (response.ok) {
       return result;
@@ -220,15 +218,15 @@ const deleteFile = async (fileId, token) => {
 
 const postTag = async (tag, token) => {
   const options = {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
-      'x-access-token': token,
+      "Content-Type": "application/json",
+      "x-access-token": token,
     },
     body: JSON.stringify(tag),
   };
   try {
-    const response = await fetch(apiUrl + 'tags', options);
+    const response = await fetch(apiUrl + "tags", options);
     const result = await response.json();
     if (response.ok) {
       return result;
@@ -241,18 +239,20 @@ const postTag = async (tag, token) => {
   // http://media.mw.metropolia.fi/wbma/docs/#api-Tag-PostTag
 };
 
-
 const postComment = async (comment, token) => {
+  console.log("Comment", comment);
+
   const options = {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
-      'x-access-token': token,
+      "Content-Type": "application/json",
+      "x-access-token": token,
     },
     body: JSON.stringify(comment),
   };
   try {
-    const response = await fetch(apiUrl + 'comment', options);
+    const response = await fetch(apiUrl + "comments", options);
+
     const result = await response.json();
     if (response.ok) {
       return result;
@@ -264,18 +264,33 @@ const postComment = async (comment, token) => {
   }
   // http://media.mw.metropolia.fi/wbma/docs/#api-Tag-PostTag
 };
+
+const getComments = async (fileId) => {
+
+    try {
+      // const response = await fetch(apiUrl + 'media');
+      const response = await fetch(apiUrl + "comments/file/" + fileId);
+      const json = await response.json();
+
+      console.log('load comments', json);
+
+      return json;
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
 
 // get user info
 const getUser = async (id, token) => {
   const options = {
     headers: {
-      'Content-Type': 'application/json',
-      'x-access-token': token,
+      "Content-Type": "application/json",
+      "x-access-token": token,
     },
   };
   try {
-    const response = await fetch(apiUrl + 'users/' + id, options);
+    const response = await fetch(apiUrl + "users/" + id, options);
     const result = await response.json();
     if (response.ok) {
       return result;
@@ -300,6 +315,8 @@ export {
   deleteFile,
   postTag,
   getUser,
+  postComment,
+  getComments,
   // addFavorite,
   appIdentifier,
 };

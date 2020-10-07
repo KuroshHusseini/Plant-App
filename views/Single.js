@@ -138,7 +138,7 @@ const Single = ({route}) => {
               <Text style={{fontSize: 18}}> By: {owner.username}</Text>
             </CardItem>
           </Card>
-          <CommentForm file_Id={file.file_id} />
+          <CommentForm fileId={file.file_id} />
         </Content>
       </Container>
     </StyleProvider>

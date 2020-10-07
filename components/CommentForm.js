@@ -1,8 +1,10 @@
-import React, { useContext, useState } from "react";
-import { StyleSheet, TextInput, Form, View } from "native-base";
+import React, { useContext, useState, useEffect } from "react";
+import { StyleSheet, TextInput, Form, View, Button, Text } from "native-base";
 import { AuthContext } from "../contexts/AuthContext";
 import useCommentForm from "../hooks/CommentHooks";
-
+import FormTextInput from "./FormTextInput";
+import AsyncStorage from "@react-native-community/async-storage";
+import { postComment, getComments } from "../hooks/APIhooks";
 const CommentForm = ({ fileId }) => {
   const [comments, setComments] = useState([]);
   const {
@@ -19,48 +21,53 @@ const CommentForm = ({ fileId }) => {
       return;
     }
     try {
-      setInputs((inputs) => {
-        return {
-          ...inputs,
-          file_id: fileId,
-        };
-      });
       const userToken = await AsyncStorage.getItem("userToken");
       const commentData = await postComment(inputs, userToken);
       console.log("user comment success:", commentData);
     } catch (e) {
-      console.log("login error", e.message);
+      console.log("comment error", e.message);
     }
     // navigation.navigate('Home');
   };
 
   const fetchComments = async () => {
-    setComments(await useCommentForm(setComments.file_id));
+    setInputs((inputs) => {
+      return {
+        ...inputs,
+        file_id: fileId,
+      };
+    });
+
+    try {
+      setComments(await getComments(fileId));
+    } catch (e) {
+      console.log("comment error", e.message);
+    }
   };
 
   useEffect(() => {
     fetchComments();
   }, []);
-
+  console.log("rivi 51", comments);
   return (
     <View>
-      <View >
-        <TextInput
+      <View>
+        <FormTextInput
           placeholder="What is you opinion :)"
-          onChangeText={handleInputChange}
-          value={inputs}
+          onChangeText={(txt) => handleInputChange("comment", txt)}
+          value={inputs.comment}
         />
-        <Button title="Comment" onPress={doComment} />
+        <Button title="Comment" onPress={doComment}>
+          <Text>Comment</Text>
+        </Button>
         <View>
-          {comments.Map((commentti) => (
-            <Text key={commentti}>{commentti}</Text>
+          {comments.map((commentti) => (
+            <Text key={commentti.comment_id}>{commentti.comment}</Text>
           ))}
         </View>
       </View>
     </View>
   );
 };
-
-
 
 export default CommentForm;
