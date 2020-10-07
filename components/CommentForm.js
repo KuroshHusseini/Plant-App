@@ -55,7 +55,7 @@ const CommentForm = ({ fileId }) => {
     // fetchOwner();
   }, []);
   console.log("rivi 51", comments);
-  console.log("rivi 52", fetchOwner);
+  // console.log("rivi 52", fetchOwner);
 
   return (
     <View style={{ padding: 5 }}>
