@@ -79,7 +79,7 @@ $ expo start
 
 
 ### Trello
-Here is our Trello where you can see how our project moves forward and everything about it. 
+Here is our planner where you can see how our project moves forward and everything about it. 
 <p>
 https://trello.com/b/JKqkLt4H/plants
 </p>
