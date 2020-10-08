@@ -1,23 +1,23 @@
 /* eslint-disable max-len */
 /* eslint-disable react/display-name */
 /* eslint-disable react/prop-types */
-import React, {useContext} from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
-import {NavigationContainer} from '@react-navigation/native';
-import Home from '../views/Home';
-import Favorites from '../views/Favorites';
-import Profile from '../views/Profile';
-import Single from '../views/Single';
-import Login from '../views/Login';
-import {AuthContext} from '../contexts/AuthContext';
-import Upload from '../views/Upload';
-import MyFiles from '../views/MyFiles';
-import Modify from '../views/Modify';
-import {AntDesign, Ionicons, Entypo} from '@expo/vector-icons';
-import {StyleProvider} from 'native-base';
-import material from '../theme/variables/material';
-import getTheme from '../theme/components';
-import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
+import React, { useContext } from "react";
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
+import Home from "../views/Home";
+import Favorites from "../views/Favorites";
+import Profile from "../views/Profile";
+import Single from "../views/Single";
+import Login from "../views/Login";
+import { AuthContext } from "../contexts/AuthContext";
+import Upload from "../views/Upload";
+import MyFiles from "../views/MyFiles";
+import Modify from "../views/Modify";
+import { AntDesign, Ionicons, Entypo } from "@expo/vector-icons";
+import { StyleProvider } from "native-base";
+import material from "../theme/variables/material";
+import getTheme from "../theme/components";
+import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -29,8 +29,8 @@ const TabScreen = () => {
       activeColor="#228b22"
       inactiveColor="gray"
       barStyle={{
-        borderColor: '#38733C',
-        backgroundColor: '#b8f4b8',
+        borderColor: "#38733C",
+        backgroundColor: "#b8f4b8",
       }}
     >
       <Tab.Screen
@@ -46,7 +46,7 @@ const TabScreen = () => {
               color="black"
             />
           ),
-          tabBarColor: '#4DC955',
+          tabBarColor: "#4DC955",
         }}
       />
       <Tab.Screen
@@ -57,31 +57,16 @@ const TabScreen = () => {
           tabBarIcon: () => (
             <AntDesign name="profile" size={24} color="black" />
           ),
-          tabBarColor: '#34BA96',
+          tabBarColor: "#34BA96",
         }}
       />
-      { <Tab.Screen
-        name="Favorites"
-        component={Favorites}
-        options={{
-          tabBarIcon: () => (
-            <Ionicons
-              backgroundColor="#b8f4b8"
-              name="ios-heart"
-              size={24}
-              color="black"
-            />
-          ),
-          tabBarColor: '#fcff57',
-        }}
-      /> }
       <Tab.Screen
         name="Upload"
         component={Upload}
         options={{
           // eslint-disable-next-line react/display-name
           tabBarIcon: () => <Entypo name="upload" size={24} color="black" />,
-          tabBarColor: '#9ACD32',
+          tabBarColor: "#9ACD32",
         }}
       />
     </Tab.Navigator>
@@ -89,7 +74,7 @@ const TabScreen = () => {
 };
 
 const StackScreen = () => {
-  const {isLoggedIn} = useContext(AuthContext);
+  const { isLoggedIn } = useContext(AuthContext);
   return (
     <Stack.Navigator>
       {isLoggedIn ? (
@@ -98,9 +83,9 @@ const StackScreen = () => {
             name="Home"
             component={TabScreen}
             options={{
-              headerPressColorAndroid: '#b8f4b8',
+              headerPressColorAndroid: "#b8f4b8",
               headerStyle: {
-                backgroundColor: '#b8f4b8',
+                backgroundColor: "#b8f4b8",
               },
             }}
           />
@@ -108,9 +93,9 @@ const StackScreen = () => {
             name="Single"
             component={Single}
             options={{
-              headerPressColorAndroid: '#b8f4b8',
+              headerPressColorAndroid: "#b8f4b8",
               headerStyle: {
-                backgroundColor: '#4DC955',
+                backgroundColor: "#4DC955",
               },
             }}
           />
@@ -118,9 +103,9 @@ const StackScreen = () => {
             name="MyFiles"
             component={MyFiles}
             options={{
-              headerPressColorAndroid: '#b8f4b8',
+              headerPressColorAndroid: "#b8f4b8",
               headerStyle: {
-                backgroundColor: '#90EE90',
+                backgroundColor: "#90EE90",
               },
             }}
           />
@@ -128,9 +113,9 @@ const StackScreen = () => {
             name="Modify"
             component={Modify}
             options={{
-              headerPressColorAndroid: '#b8f4b8',
+              headerPressColorAndroid: "#b8f4b8",
               headerStyle: {
-                backgroundColor: '#34BA96',
+                backgroundColor: "#34BA96",
               },
             }}
           />

@@ -5,7 +5,7 @@ import Navigator from "./navigators/Navigator";
 import { AuthProvider } from "./contexts/AuthContext";
 import * as Expo from "expo";
 import * as Font from "expo-font";
-// import { StackNavigator, DrawerNavigator } from "react-navigation";
+
 // eslint-disable-next-line max-len
 
 const App = () => {
@@ -14,7 +14,7 @@ const App = () => {
     await Font.loadAsync({
       Roboto: require("native-base/Fonts/Roboto.ttf"),
       Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
-    }), 
+    }),
       setFontReady(true);
   };
   useEffect(() => {

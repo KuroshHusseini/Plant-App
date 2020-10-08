@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 const apiUrl = "http://media.mw.metropolia.fi/wbma/";
-const appIdentifier = "Plant-App-Test";
+const appIdentifier = "Plant-App";
 
 const useLoadMedia = (all, userId) => {
   const [mediaArray, setMediaArray] = useState([]);

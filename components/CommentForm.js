@@ -5,7 +5,7 @@ import FormTextInput from "./FormTextInput";
 import AsyncStorage from "@react-native-community/async-storage";
 import { postComment, getComments } from "../hooks/APIhooks";
 const CommentForm = ({ fileId }) => {
-  //const [owner, setOwner] = useState({});
+
   const [comments, setComments] = useState([]);
   const {
     handleInputChange,
@@ -14,11 +14,6 @@ const CommentForm = ({ fileId }) => {
     loginErrors,
     setInputs,
   } = useCommentForm();
-
-  // const fetchOwner = async () => {
-  //   const userToken = await AsyncStorage.getItem("userToken");
-  //   setOwner(await getUser(file.user_id, userToken));
-  // };
 
   const doComment = async () => {
     if (!validateOnSend()) {
@@ -32,7 +27,6 @@ const CommentForm = ({ fileId }) => {
     } catch (e) {
       console.log("comment error", e.message);
     }
-    // navigation.navigate('Home');
   };
 
   const fetchComments = async () => {
@@ -55,7 +49,7 @@ const CommentForm = ({ fileId }) => {
     // fetchOwner();
   }, []);
   console.log("rivi 51", comments);
-  // console.log("rivi 52", fetchOwner);
+ 
 
   return (
     <View style={{ padding: 5 }}>
