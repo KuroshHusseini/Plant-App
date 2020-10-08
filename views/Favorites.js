@@ -20,4 +20,4 @@ Favorites.propTypes = {
   navigation: PropTypes.object,
 };
 
-export default Favorites;
+export default Favorites
