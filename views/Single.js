@@ -16,7 +16,7 @@ import {
   Right,
 } from "native-base";
 import { Video } from "expo-av";
-import { getUser, addFavorite } from "../hooks/APIhooks";
+import { getUser } from "../hooks/APIhooks";
 import AsyncStorage from "@react-native-community/async-storage";
 import * as ScreenOrientation from "expo-screen-orientation";
 import material from "../theme/variables/material";
@@ -97,13 +97,6 @@ const Single = ({ route }) => {
               <Right>
                 <TouchableOpacity
                   onPress={handleLikes}
-                  //   onPress={
-                  //     async ()=>{
-                  //     const userToken = await AsyncStorage.getItem('userToken');
-                  //     addFavorite(file.file_id, userToken );
-                  //   }
-
-                  // }
                 >
                   <Text>
                     <Icon name="heart"> {likes}</Icon>

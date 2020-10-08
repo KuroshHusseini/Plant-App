@@ -7,7 +7,6 @@ import useUploadForm from "../hooks/UploadHooks";
 import * as ImagePicker from "expo-image-picker";
 
 // eslint-disable-next-line no-unused-vars
-import Constants from "expo-constants";
 import * as Permissions from "expo-permissions";
 import { upload, postTag, appIdentifier } from "../hooks/APIhooks";
 import AsyncStorage from "@react-native-community/async-storage";
