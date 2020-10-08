@@ -1,6 +1,6 @@
-/* eslint-disable max-len */
 /* eslint-disable react/display-name */
-/* eslint-disable react/prop-types */
+/* eslint-disable max-len */
+
 import React, {useContext} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';

@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { View, Button, Text } from "native-base";
-import useCommentForm from "../hooks/CommentHooks";
-import FormTextInput from "./FormTextInput";
-import AsyncStorage from "@react-native-community/async-storage";
-import { postComment, getComments } from "../hooks/APIhooks";
-const CommentForm = ({ fileId }) => {
-  //const [owner, setOwner] = useState({});
+/* eslint-disable react/prop-types */
+import React, {useState, useEffect} from 'react';
+import {View, Button, Text} from 'native-base';
+import useCommentForm from '../hooks/CommentHooks';
+import FormTextInput from './FormTextInput';
+import AsyncStorage from '@react-native-community/async-storage';
+import {postComment, getComments} from '../hooks/APIhooks';
+const CommentForm = ({fileId}) => {
+  // const [owner, setOwner] = useState({});
   const [comments, setComments] = useState([]);
   const {
     handleInputChange,
     validateOnSend,
     inputs,
-    loginErrors,
     setInputs,
   } = useCommentForm();
 
@@ -22,15 +22,15 @@ const CommentForm = ({ fileId }) => {
 
   const doComment = async () => {
     if (!validateOnSend()) {
-      console.log("validate on send failed");
+      console.log('validate on send failed');
       return;
     }
     try {
-      const userToken = await AsyncStorage.getItem("userToken");
+      const userToken = await AsyncStorage.getItem('userToken');
       const commentData = await postComment(inputs, userToken);
-      console.log("user comment success:", commentData);
+      console.log('user comment success:', commentData);
     } catch (e) {
-      console.log("comment error", e.message);
+      console.log('comment error', e.message);
     }
     // navigation.navigate('Home');
   };
@@ -46,7 +46,7 @@ const CommentForm = ({ fileId }) => {
     try {
       setComments(await getComments(fileId));
     } catch (e) {
-      console.log("comment error", e.message);
+      console.log('comment error', e.message);
     }
   };
 
@@ -54,26 +54,26 @@ const CommentForm = ({ fileId }) => {
     fetchComments();
     // fetchOwner();
   }, []);
-  console.log("rivi 51", comments);
+  console.log('rivi 51', comments);
   // console.log("rivi 52", fetchOwner);
 
   return (
-    <View style={{ padding: 5 }}>
-      <View style={{ padding: 5, flexDirection: "row" }}>
+    <View style={{padding: 5}}>
+      <View style={{padding: 5, flexDirection: 'row'}}>
         <View
           style={{
-            width: "80%",
+            width: '80%',
             height: 45,
             marginLeft: -5,
             marginRight: 5,
-            borderColor: "#006400",
+            borderColor: '#006400',
             borderRadius: 10,
             borderWidth: 2,
           }}
         >
           <FormTextInput
             placeholder="Write your opinion... :)"
-            onChangeText={(txt) => handleInputChange("comment", txt)}
+            onChangeText={(txt) => handleInputChange('comment', txt)}
             value={inputs.comment}
             style={{
               padding: 10,
@@ -84,14 +84,14 @@ const CommentForm = ({ fileId }) => {
         <Button
           title="Comment"
           onPress={doComment}
-          style={{ width: 85, borderRadius: 10 }}
+          style={{width: 85, borderRadius: 10}}
         >
-          <Text style={{ fontSize: 12 }}>Comment</Text>
+          <Text style={{fontSize: 12}}>Comment</Text>
         </Button>
       </View>
       <View
         style={{
-          justifyContent: "space-around",
+          justifyContent: 'space-around',
           paddingVertical: 5,
           borderRadius: 10,
         }}
@@ -103,7 +103,7 @@ const CommentForm = ({ fileId }) => {
               style={{
                 padding: 5,
                 height: 45,
-                borderColor: "#006400",
+                borderColor: '#006400',
                 borderWidth: 2,
                 borderRadius: 10,
               }}

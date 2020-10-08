@@ -1,5 +1,6 @@
-import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+/* eslint-disable no-undef */
+import React from 'react';
+import {Image, StyleSheet, View} from 'react-native';
 
 const ImageIcon = (props) => {
   return (
@@ -7,7 +8,7 @@ const ImageIcon = (props) => {
       <View style={styles.imageContainer}>
         <Image
           style={styles.img}
-          source={require("../assets/img/holdingPlant.png")}
+          source={require('../assets/img/holdingPlant.png')}
         />
       </View>
     </View>
@@ -25,8 +26,8 @@ const styles = StyleSheet.create({
     width: 200,
     borderRadius: 200,
     borderWidth: 3,
-    borderColor: "black",
-    overflow: "hidden",
+    borderColor: 'black',
+    overflow: 'hidden',
   },
   img: {
     height: 200,

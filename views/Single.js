@@ -1,9 +1,7 @@
-/* eslint-disable no-invalid-this */
-/* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
-import React, { useEffect, useState } from "react";
-import { Image } from "react-native";
-import PropTypes from "prop-types";
+import React, {useEffect, useState} from 'react';
+import {Image} from 'react-native';
+import PropTypes from 'prop-types';
 import {
   Card,
   CardItem,
@@ -14,25 +12,25 @@ import {
   Container,
   StyleProvider,
   Right,
-} from "native-base";
-import { Video } from "expo-av";
-import { getUser, addFavorite } from "../hooks/APIhooks";
-import AsyncStorage from "@react-native-community/async-storage";
-import * as ScreenOrientation from "expo-screen-orientation";
-import material from "../theme/variables/material";
-import getTheme from "../theme/components";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import CommentForm from "../components/CommentForm";
+} from 'native-base';
+import {Video} from 'expo-av';
+import {getUser} from '../hooks/APIhooks';
+import AsyncStorage from '@react-native-community/async-storage';
+import * as ScreenOrientation from 'expo-screen-orientation';
+import material from '../theme/variables/material';
+import getTheme from '../theme/components';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import CommentForm from '../components/CommentForm';
 
-const mediaUrl = "http://media.mw.metropolia.fi/wbma/uploads/";
+const mediaUrl = 'http://media.mw.metropolia.fi/wbma/uploads/';
 
-const Single = ({ route }) => {
+const Single = ({route}) => {
   const [error, setError] = useState(false);
   const [owner, setOwner] = useState({});
   const [videoRef, setVideoRef] = useState(null);
 
   const [likes, setLikes] = useState(0);
-  const { file } = route.params;
+  const {file} = route.params;
 
   const handleLikes = () => {
     setLikes((prevLike) => prevLike + 1);
@@ -47,7 +45,7 @@ const Single = ({ route }) => {
     try {
       await videoRef.presentFullscreenPlayer();
     } catch (e) {
-      console.log("svifs error", e.message);
+      console.log('svifs error', e.message);
     }
   };
 
@@ -57,12 +55,12 @@ const Single = ({ route }) => {
 
   const lock = async () => {
     await ScreenOrientation.lockAsync(
-      ScreenOrientation.OrientationLock.PORTRAIT_UP
+        ScreenOrientation.OrientationLock.PORTRAIT_UP,
     );
   };
 
   const fetchOwner = async () => {
-    const userToken = await AsyncStorage.getItem("userToken");
+    const userToken = await AsyncStorage.getItem('userToken');
     setOwner(await getUser(file.user_id, userToken));
   };
 
@@ -71,7 +69,7 @@ const Single = ({ route }) => {
     fetchOwner();
 
     const orientSub = ScreenOrientation.addOrientationChangeListener((evt) => {
-      console.log("orientation", evt);
+      console.log('orientation', evt);
       if (evt.orientationInfo.orientation > 2) {
         showVideoInFullscreen();
       }
@@ -83,7 +81,7 @@ const Single = ({ route }) => {
     };
   }, [videoRef]);
 
-  console.log("kuva", mediaUrl + file.filename);
+  console.log('kuva', mediaUrl + file.filename);
   return (
     <StyleProvider style={getTheme(material)}>
       <Container>
@@ -91,8 +89,8 @@ const Single = ({ route }) => {
           <Card>
             <CardItem>
               <Left>
-                <Icon name={"image"} />
-                <Text style={{ fontSize: 23 }}>{file.title}</Text>
+                <Icon name={'image'} />
+                <Text style={{fontSize: 23}}>{file.title}</Text>
               </Left>
               <Right>
                 <TouchableOpacity
@@ -113,27 +111,27 @@ const Single = ({ route }) => {
             </CardItem>
             <CardItem cardBody>
               <>
-                {file.media_type === "image" ? (
+                {file.media_type === 'image' ? (
                   <Image
-                    source={{ uri: mediaUrl + file.filename }}
-                    style={{ height: 250, width: null, flex: 1 }}
+                    source={{uri: mediaUrl + file.filename}}
+                    style={{height: 250, width: null, flex: 1}}
                   />
                 ) : (
                   <Video
                     ref={handleVideoRef}
                     source={{
-                      uri: error
-                        ? "http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4"
-                        : mediaUrl + file.filename,
+                      uri: error ?
+                        'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4' :
+                        mediaUrl + file.filename,
                     }}
-                    style={{ height: 250, width: null, flex: 1 }}
+                    style={{height: 250, width: null, flex: 1}}
                     useNativeControls={true}
                     resizeMode="cover"
-                    posterSource={{ uri: mediaUrl + file.screenshot }}
+                    posterSource={{uri: mediaUrl + file.screenshot}}
                     usePoster={true}
-                    posterStyle={{ height: 250, width: null }}
+                    posterStyle={{height: 250, width: null}}
                     onError={(err) => {
-                      console.log("video error", err);
+                      console.log('video error', err);
                       setError(true);
                     }}
                   />
@@ -141,9 +139,9 @@ const Single = ({ route }) => {
               </>
             </CardItem>
 
-            <CardItem style={{ flexDirection: "row", alignContent: "center" }}>
-              <Text style={{ fontSize: 18 }}>{file.description}</Text>
-              <Text style={{ fontSize: 18 }}> By: {owner.username}</Text>
+            <CardItem style={{flexDirection: 'row', alignContent: 'center'}}>
+              <Text style={{fontSize: 18}}>{file.description}</Text>
+              <Text style={{fontSize: 18}}> By: {owner.username}</Text>
             </CardItem>
           </Card>
           <CommentForm fileId={file.file_id} />
