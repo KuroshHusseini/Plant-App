@@ -130,9 +130,11 @@ const Single = ({ route }) => {
               </>
             </CardItem>
 
-            <CardItem style={{alignContent: "center" }}>
-              <Text style={{ fontSize: 18 }}>{file.description} By: {owner.username}</Text>
-              
+            <CardItem style={{ alignContent: "center" }}>
+              <Text style={{ fontSize: 18 }}>
+                {file.description}
+                 By: {owner.username}
+              </Text>
             </CardItem>
           </Card>
           <CommentForm fileId={file.file_id} />
