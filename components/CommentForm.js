@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from "react";
 import { View, Button, Text } from "native-base";
 import useCommentForm from "../hooks/CommentHooks";
@@ -5,13 +6,13 @@ import FormTextInput from "./FormTextInput";
 import AsyncStorage from "@react-native-community/async-storage";
 import { postComment, getComments } from "../hooks/APIhooks";
 const CommentForm = ({ fileId }) => {
+  // const [owner, setOwner] = useState({});
 
   const [comments, setComments] = useState([]);
   const {
     handleInputChange,
     validateOnSend,
     inputs,
-    loginErrors,
     setInputs,
   } = useCommentForm();
 
@@ -48,8 +49,9 @@ const CommentForm = ({ fileId }) => {
     fetchComments();
     // fetchOwner();
   }, []);
+
   console.log("rivi 51", comments);
- 
+  // console.log("rivi 52", fetchOwner);
 
   return (
     <View style={{ padding: 5 }}>

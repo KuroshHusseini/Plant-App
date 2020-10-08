@@ -1,5 +1,3 @@
-/* eslint-disable no-invalid-this */
-/* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 import React, { useEffect, useState } from "react";
 import { Image } from "react-native";
@@ -95,9 +93,7 @@ const Single = ({ route }) => {
                 <Text style={{ fontSize: 23 }}>{file.title}</Text>
               </Left>
               <Right>
-                <TouchableOpacity
-                  onPress={handleLikes}
-                >
+                <TouchableOpacity onPress={handleLikes}>
                   <Text>
                     <Icon name="heart"> {likes}</Icon>
                   </Text>

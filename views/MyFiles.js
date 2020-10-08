@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+
 import {StatusBar} from 'expo-status-bar';
 import React from 'react';
 import List from '../components/List';

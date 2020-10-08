@@ -5,8 +5,6 @@ import FormTextInput from "../components/FormTextInput";
 import { Image, Platform } from "react-native";
 import useUploadForm from "../hooks/UploadHooks";
 import * as ImagePicker from "expo-image-picker";
-
-// eslint-disable-next-line no-unused-vars
 import * as Permissions from "expo-permissions";
 import { upload, postTag, appIdentifier } from "../hooks/APIhooks";
 import AsyncStorage from "@react-native-community/async-storage";
@@ -14,8 +12,6 @@ import { Video } from "expo-av";
 import materialTwo from "../theme/variables/materialTwo";
 import getTheme from "../theme/components";
 import { StyleProvider } from "native-base";
-
-// eslint-disable-next-line no-unused-vars
 
 const Upload = ({ navigation }) => {
   const [image, setImage] = useState(null);

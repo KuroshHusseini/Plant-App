@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { Button, Container, Content, Form, Spinner, Text } from "native-base";
 import FormTextInput from "../components/FormTextInput";
 import useUploadForm from "../hooks/UploadHooks";
-// eslint-disable-next-line no-unused-vars
 import { updateFile } from "../hooks/APIhooks";
 import AsyncStorage from "@react-native-community/async-storage";
 

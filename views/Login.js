@@ -1,14 +1,12 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable object-curly-spacing */
-/* eslint-disable quotes */
-import React, { useContext, useEffect, useState } from "react";
-import PropTypes from "prop-types";
-import { AuthContext } from "../contexts/AuthContext";
-import AsyncStorage from "@react-native-community/async-storage";
-import { checkToken } from "../hooks/APIhooks";
-import LoginForm from "../components/LoginForm";
-import RegisterForm from "../components/RegisterForm";
-import ImageIcon from "../components/ImageIcon";
+
+import React, {useContext, useEffect, useState} from 'react';
+import PropTypes from 'prop-types';
+import {AuthContext} from '../contexts/AuthContext';
+import AsyncStorage from '@react-native-community/async-storage';
+import {checkToken} from '../hooks/APIhooks';
+import LoginForm from '../components/LoginForm';
+import RegisterForm from '../components/RegisterForm';
+import ImageIcon from '../components/ImageIcon';
 import {
   Title,
   Container,
@@ -16,30 +14,28 @@ import {
   Text,
   View,
   StyleProvider,
-} from "native-base";
-import RegisterButton from "../components/RegisterButton";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import getTheme from "../theme/components";
-import materialTwo from "../theme/variables/materialTwo";
+} from 'native-base';
+import RegisterButton from '../components/RegisterButton';
+import getTheme from '../theme/components';
+import materialTwo from '../theme/variables/materialTwo';
 
-const Login = ({ navigation }) => {
+const Login = ({navigation}) => {
   // props is needed for navigation
-  const { setIsLoggedIn, setUser, user } = useContext(AuthContext);
+  const {setIsLoggedIn, setUser, user} = useContext(AuthContext);
 
   const [showRegistration, setShowRegistration] = useState(true);
-  // console.log('Login', isLoggedIn);
 
   const getToken = async () => {
-    const userToken = await AsyncStorage.getItem("userToken");
-    console.log("token", userToken);
+    const userToken = await AsyncStorage.getItem('userToken');
+    console.log('token', userToken);
     if (userToken) {
       try {
         const userData = await checkToken(userToken);
-        console.log("token valid", userData);
+        console.log('token valid', userData);
         setIsLoggedIn(true);
         setUser(userData);
       } catch (e) {
-        console.log("token check failed", e.message);
+        console.log('token check failed', e.message);
       }
       // navigation.navigate('Home');
     }
@@ -48,7 +44,7 @@ const Login = ({ navigation }) => {
     getToken();
   }, []);
 
-  console.log("Login.js", user);
+  console.log('Login.js', user);
 
   return (
     <StyleProvider style={getTheme(materialTwo)}>
@@ -56,7 +52,7 @@ const Login = ({ navigation }) => {
         <Content padder>
           <Title
             style={{
-              fontWeight: "bold",
+              fontWeight: 'bold',
 
               marginTop: 5,
               fontSize: 18,
@@ -72,7 +68,7 @@ const Login = ({ navigation }) => {
             <RegisterForm navigation={navigation} />
           )}
 
-          <View style={{ alignItems: "center", margin: 5 }}>
+          <View style={{alignItems: 'center', margin: 5}}>
             <Text>OR</Text>
           </View>
 
@@ -82,7 +78,7 @@ const Login = ({ navigation }) => {
               setShowRegistration(!showRegistration);
             }}
           >
-            {showRegistration ? "Register" : "Login"}
+            {showRegistration ? 'Register' : 'Login'}
           </RegisterButton>
         </Content>
       </Container>
